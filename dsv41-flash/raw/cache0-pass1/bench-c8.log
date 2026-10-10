@@ -1,0 +1,7 @@
+trial 0: c=8 p=256 out=128 median_decode=50.1 tok/s agg=214.5 ttft=848ms n=[128, 128, 128, 128, 128, 128, 128, 128]
+trial 1: c=8 p=256 out=128 median_decode=53.6 tok/s agg=290.7 ttft=738ms n=[128, 128, 128, 128, 128, 128, 128, 128]
+trial 2: c=8 p=256 out=128 median_decode=50.1 tok/s agg=279.1 ttft=644ms n=[128, 128, 128, 128, 128, 128, 128, 128]
+trial 3: c=8 p=256 out=128 median_decode=50.4 tok/s agg=296.2 ttft=648ms n=[128, 128, 128, 128, 128, 128, 128, 128]
+trial 4: c=8 p=256 out=128 median_decode=58.7 tok/s agg=350.2 ttft=657ms n=[128, 128, 128, 128, 128, 128, 128, 128]
+
+FINAL: median-of-trials decode = 50.4 tok/s (min 50.1 max 58.7)

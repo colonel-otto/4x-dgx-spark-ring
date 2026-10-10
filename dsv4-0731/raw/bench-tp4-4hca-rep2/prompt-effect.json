@@ -1,0 +1,29 @@
+{
+  "code_brief": {
+    "label": "code-brief",
+    "decode_tok_s": 113.0,
+    "ttft_ms": 271,
+    "prompt_tokens": 18,
+    "reps": 5,
+    "min": 110.7,
+    "max": 113.8
+  },
+  "dense_prose": {
+    "label": "dense-prose",
+    "decode_tok_s": 67.0,
+    "ttft_ms": 162,
+    "prompt_tokens": 23,
+    "reps": 5,
+    "min": 64.2,
+    "max": 67.1
+  },
+  "prompt_effect_ratio": 1.687,
+  "_meta": {
+    "base_url": "http://127.0.0.1:8100/v1",
+    "model": "deepseek-v4-flash-eugr-ab",
+    "code_brief_prompt": "Write a Python function that merges two sorted lists. Explain briefly.",
+    "dense_prose_prompt": "Write a detailed technical explanation of how pipeline parallelism differs from tensor parallelism in large language model inference.",
+    "dense_prose_is_reconstruction": true,
+    "dense_prose_note": "ours-bench.py was never committed and no doc records its prompt text; this is a reconstruction to the recorded ~51-token prose shape. The cross-engine dense-prose number is NOT matched; only the within-engine code/prose ratio is."
+  }
+}

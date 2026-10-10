@@ -1,0 +1,1 @@
+trial 0: c=4 p=256 out=128 median_decode=62.0 tok/s agg=184.7 ttft=555ms n=[128, 128, 128, 128]

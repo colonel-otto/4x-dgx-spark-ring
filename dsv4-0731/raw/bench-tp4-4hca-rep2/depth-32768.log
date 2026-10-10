@@ -1,0 +1,5 @@
+trial 0: c=1 p=32768 out=128 median_decode=110.6 tok/s agg=10.9 ttft=10636ms n=[128]
+trial 1: c=1 p=32768 out=128 median_decode=107.0 tok/s agg=10.8 ttft=10627ms n=[128]
+trial 2: c=1 p=32768 out=128 median_decode=111.1 tok/s agg=10.9 ttft=10599ms n=[128]
+
+FINAL: median-of-trials decode = 110.6 tok/s (min 107.0 max 111.1)
