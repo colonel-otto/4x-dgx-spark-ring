@@ -3,3 +3,7 @@ dsv4-0731/nccl-gate/nt24/
 dsv4-0731/nccl-gate/logs/np4.rail1*.alltoall.log
 dsv41-flash/corpus.txt
 dsv41-flash/__pycache__/
+
+# throwaway container-to-container MPI key: generated locally, never committed
+dsv4-0731/nccl-gate/img/ntkey
+dsv4-0731/nccl-gate/img/ntkey.pub

@@ -1,3 +1,5 @@
+# Before building: ssh-keygen -q -t ed25519 -N "" -f ntkey   (key stays local; .gitignore). Rebuild ntests24:eugr
+# before reuse: images built before 2026-10-10 contain a key that was briefly in this repo.
 FROM eugr/spark-vllm-b12x:latest
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openmpi-bin libopenmpi3t64 openssh-client openssh-server && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /var/run/sshd /root/.ssh && chmod 700 /root/.ssh && ssh-keygen -A && \
