@@ -1,0 +1,1370 @@
+# -np 1 -host 192.168.1.70:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/all_reduce_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.6:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/all_reduce_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.66:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/all_reduce_perf -b 8 -e 1M -f 2 -g 1
+# nccl-tests version 2.19.7 nccl-headers=23007 nccl-library=23007
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 1 minBytes 8 maxBytes 1048576 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid   1458 on spark-5fa1 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  1 Group  0 Pid    515 on  gx10-e146 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  2 Group  0 Pid    292 on  gx10-6b41 device  0 [000f:01:00] NVIDIA GB10
+spark-5fa1:1458:1458 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+spark-5fa1:1458:1458 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+spark-5fa1:1458:1458 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+spark-5fa1:1458:1458 [0] NCCL INFO cudaDriverVersion 13000
+spark-5fa1:1458:1458 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+spark-5fa1:1458:1458 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:515:515 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-e146:515:515 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-e146:515:515 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:515:515 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-e146:515:515 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-e146:515:515 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-6b41:292:292 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-6b41:292:292 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-6b41:292:292 [0] NCCL INFO cudaDriverVersion 13000
+gx10-6b41:292:292 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-6b41:292:292 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-6b41:292:292 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:515:515 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-e146:515:515 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-e146:515:515 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-e146:515:515 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-e146:515:515 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+gx10-e146:515:515 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xb533684ae6e0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1458:1458 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+spark-5fa1:1458:1458 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+spark-5fa1:1458:1458 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1458:1458 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1458:1458 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xbfb0415c2960 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xbfb0416041d0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:292:292 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-6b41:292:292 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-6b41:292:292 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:292:292 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:292:292 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+gx10-e146:515:515 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xb533684efd30 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.70<0>
+spark-5fa1:1458:1458 [0] NCCL INFO Initialized NET plugin IB
+spark-5fa1:1458:1458 [0] NCCL INFO Assigned NET plugin IB to comm
+spark-5fa1:1458:1458 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+spark-5fa1:1458:1458 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+spark-5fa1:1458:1458 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+spark-5fa1:1458:1458 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+spark-5fa1:1458:1458 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+spark-5fa1:1458:1458 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+spark-5fa1:1458:1458 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+spark-5fa1:1458:1458 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+spark-5fa1:1458:1458 [0] NCCL INFO Using network IB
+spark-5fa1:1458:1458 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-6b41:292:292 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xbe6f5d6067c0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:515:515 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:515:515 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:515:515 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.6<0>
+gx10-e146:515:515 [0] NCCL INFO Initialized NET plugin IB
+gx10-6b41:292:292 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xbe6f5d647e10 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:515:515 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-e146:515:515 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-e146:515:515 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-e146:515:515 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-e146:515:515 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-e146:515:515 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-e146:515:515 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-e146:515:515 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-e146:515:515 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-e146:515:515 [0] NCCL INFO Using network IB
+gx10-e146:515:515 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+spark-5fa1:1458:1458 [0] NCCL INFO [Rank 0] ncclCommInitRankConfig comm 0xbfb03eb0edf0 rank 0 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x742f19cebb9d075e - Init START
+gx10-e146:515:515 [0] NCCL INFO [Rank 1] ncclCommInitRankConfig comm 0xb533659ec430 rank 1 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x742f19cebb9d075e - Init START
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.66<0>
+gx10-6b41:292:292 [0] NCCL INFO Initialized NET plugin IB
+gx10-6b41:292:292 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-6b41:292:292 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-6b41:292:292 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-6b41:292:292 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-6b41:292:292 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-6b41:292:292 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-6b41:292:292 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-6b41:292:292 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-6b41:292:292 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-6b41:292:292 [0] NCCL INFO Using network IB
+gx10-6b41:292:292 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-6b41:292:292 [0] NCCL INFO [Rank 2] ncclCommInitRankConfig comm 0xbe6f5ab44600 rank 2 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x742f19cebb9d075e - Init START
+spark-5fa1:1458:1458 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-e146:515:515 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-6b41:292:292 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+spark-5fa1:1458:1458 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1458:1458 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:1458:1458 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1458:1458 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+spark-5fa1:1458:1458 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+gx10-6b41:292:292 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:515:515 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:292:292 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:292:292 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:292:292 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+gx10-6b41:292:292 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+gx10-e146:515:515 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:515:515 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:515:515 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:515:515 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:515:515 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:515:515 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+gx10-e146:515:515 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+spark-5fa1:1458:1458 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+spark-5fa1:1458:1458 [0] NCCL INFO Rank 0: 3 Net devices
+spark-5fa1:1458:1458 [0] NCCL INFO Rank 0: 0 CollNet devices
+gx10-6b41:292:292 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+gx10-6b41:292:292 [0] NCCL INFO Rank 2: 3 Net devices
+gx10-6b41:292:292 [0] NCCL INFO Rank 2: 0 CollNet devices
+gx10-e146:515:515 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+gx10-e146:515:515 [0] NCCL INFO Rank 1: 3 Net devices
+gx10-e146:515:515 [0] NCCL INFO Rank 1: 0 CollNet devices
+spark-5fa1:1458:1458 [0] NCCL INFO Local Net device counts across ranks: min 3 max 3
+spark-5fa1:1458:1458 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+spark-5fa1:1458:1458 [0] NCCL INFO comm 0xbfb03eb0edf0 rank 0 nRanks 3 nNodes 3 localRanks 1 localRank 0 MNNVL 0
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 00/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 01/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 02/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 03/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 04/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 05/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 06/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 07/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 08/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 09/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 10/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 11/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 12/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 13/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 14/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 15/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 16/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 17/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 18/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 19/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 20/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 21/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 22/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 23/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 24/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 25/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 26/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 27/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 28/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 29/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 30/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 31/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 32/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 33/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 34/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 35/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 36/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 37/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 38/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 39/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 40/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 41/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 42/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 43/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 44/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 45/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 46/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 47/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 48/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 49/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 50/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 51/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 52/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 53/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 54/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 55/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 56/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 57/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 58/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 59/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 60/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 61/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 62/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 63/64 : 0 1 2
+spark-5fa1:1458:1458 [0] NCCL INFO Trees [0] 2/-1/-1->0->-1 [1] 2/-1/-1->0->-1 [2] 2/-1/-1->0->-1 [3] 2/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 2/-1/-1->0->-1 [9] 2/-1/-1->0->-1 [10] 2/-1/-1->0->-1 [11] 2/-1/-1->0->-1 [12] 2/-1/-1->0->-1 [13] 2/-1/-1->0->-1 [14] 2/-1/-1->0->-1 [15] 2/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 2/-1/-1->0->-1 [21] 2/-1/-1->0->-1 [22] 2/-1/-1->0->-1 [23] 2/-1/-1->0->-1 [24] 2/-1/-1->0->-1 [25] 2/-1/-1->0->-1 [26] 2/-1/-1->0->-1 [27] 2/-1/-1->0->-1 [28] 2/-1/-1->0->-1 [29] 2/-1/-1->0->-1 [30] 2/-1/-1->0->-1 [31] 2/-1/-1->0->-1 [32] 2/-1/-1->0->1 [33] 2/-1/-1->0->1 [34] 2/-1/-1->0->1 [35] 2/-1/-1->0->1 [36] 2/-1/-1->0->1 [37] 2/-1/-1->0->1 [38] 2/-1/-1->0->1 [39] 2/-1/-1->0->1 [40] 2/-1/-1->0->1 [41] 2/-1/-1->0->1 [42] 2/-1/-1->0->1 [43] 2/-1/-1->0->1 [44] 2/-1/-1->0->1 [45] 2/-1/-1->0->1 [46] 2/-1/-1->0->1 [47] 2/-1/-1->0->1 [48] 2/-1/-1->0->1 [49] 2/-1/-1->0->1 [50] 2/-1/-1->0->1 [51] 2/-1/-1->0->1 [52] 2/-1/-
+spark-5fa1:1458:1458 [0] NCCL INFO P2P Chunksize set to 262144
+spark-5fa1:1458:1458 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 3
+spark-5fa1:1458:1458 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+spark-5fa1:1458:1458 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+spark-5fa1:1458:1458 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+spark-5fa1:1458:1467 [0] NCCL INFO [Proxy Service] Device 0 CPU core 18
+spark-5fa1:1458:1467 [0] NCCL INFO proxy listening socket at 192.168.1.70<57003>
+spark-5fa1:1458:1468 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 11
+gx10-6b41:292:292 [0] NCCL INFO comm 0xbe6f5ab44600 rank 2 nRanks 3 nNodes 3 localRanks 1 localRank 0 MNNVL 0
+gx10-6b41:292:292 [0] NCCL INFO Trees [0] 1/-1/-1->2->0 [1] 1/-1/-1->2->0 [2] 1/-1/-1->2->0 [3] 1/-1/-1->2->0 [4] 1/-1/-1->2->0 [5] 1/-1/-1->2->0 [6] 1/-1/-1->2->0 [7] 1/-1/-1->2->0 [8] 1/-1/-1->2->0 [9] 1/-1/-1->2->0 [10] 1/-1/-1->2->0 [11] 1/-1/-1->2->0 [12] 1/-1/-1->2->0 [13] 1/-1/-1->2->0 [14] 1/-1/-1->2->0 [15] 1/-1/-1->2->0 [16] 1/-1/-1->2->0 [17] 1/-1/-1->2->0 [18] 1/-1/-1->2->0 [19] 1/-1/-1->2->0 [20] 1/-1/-1->2->0 [21] 1/-1/-1->2->0 [22] 1/-1/-1->2->0 [23] 1/-1/-1->2->0 [24] 1/-1/-1->2->0 [25] 1/-1/-1->2->0 [26] 1/-1/-1->2->0 [27] 1/-1/-1->2->0 [28] 1/-1/-1->2->0 [29] 1/-1/-1->2->0 [30] 1/-1/-1->2->0 [31] 1/-1/-1->2->0 [32] -1/-1/-1->2->0 [33] -1/-1/-1->2->0 [34] -1/-1/-1->2->0 [35] -1/-1/-1->2->0 [36] -1/-1/-1->2->0 [37] -1/-1/-1->2->0 [38] -1/-1/-1->2->0 [39] -1/-1/-1->2->0 [40] -1/-1/-1->2->0 [41] -1/-1/-1->2->0 [42] -1/-1/-1->2->0 [43] -1/-1/-1->2->0 [44] -1/-1/-1->2->0 [45] -1/-1/-1->2->0 [46] -1/-1/-1->2->0 [47] -1/-1/-1->2->0 [48] -1/-1/-1->2->0 [49] -1/-1/-1->2->0 [50] -1/-1/-1->2->0 [51] -1/-1/-1->2->0 [52] -1/-1/-1->2->0 [53
+gx10-6b41:292:292 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-6b41:292:292 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 3
+gx10-6b41:292:292 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-6b41:292:292 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-6b41:292:292 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-6b41:292:301 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 2
+gx10-6b41:292:300 [0] NCCL INFO [Proxy Service] Device 0 CPU core 19
+gx10-6b41:292:300 [0] NCCL INFO proxy listening socket at 192.168.1.66<58279>
+gx10-e146:515:515 [0] NCCL INFO comm 0xb533659ec430 rank 1 nRanks 3 nNodes 3 localRanks 1 localRank 0 MNNVL 0
+gx10-e146:515:515 [0] NCCL INFO Trees [0] -1/-1/-1->1->2 [1] -1/-1/-1->1->2 [2] -1/-1/-1->1->2 [3] -1/-1/-1->1->2 [4] -1/-1/-1->1->2 [5] -1/-1/-1->1->2 [6] -1/-1/-1->1->2 [7] -1/-1/-1->1->2 [8] -1/-1/-1->1->2 [9] -1/-1/-1->1->2 [10] -1/-1/-1->1->2 [11] -1/-1/-1->1->2 [12] -1/-1/-1->1->2 [13] -1/-1/-1->1->2 [14] -1/-1/-1->1->2 [15] -1/-1/-1->1->2 [16] -1/-1/-1->1->2 [17] -1/-1/-1->1->2 [18] -1/-1/-1->1->2 [19] -1/-1/-1->1->2 [20] -1/-1/-1->1->2 [21] -1/-1/-1->1->2 [22] -1/-1/-1->1->2 [23] -1/-1/-1->1->2 [24] -1/-1/-1->1->2 [25] -1/-1/-1->1->2 [26] -1/-1/-1->1->2 [27] -1/-1/-1->1->2 [28] -1/-1/-1->1->2 [29] -1/-1/-1->1->2 [30] -1/-1/-1->1->2 [31] -1/-1/-1->1->2 [32] 0/-1/-1->1->-1 [33] 0/-1/-1->1->-1 [34] 0/-1/-1->1->-1 [35] 0/-1/-1->1->-1 [36] 0/-1/-1->1->-1 [37] 0/-1/-1->1->-1 [38] 0/-1/-1->1->-1 [39] 0/-1/-1->1->-1 [40] 0/-1/-1->1->-1 [41] 0/-1/-1->1->-1 [42] 0/-1/-1->1->-1 [43] 0/-1/-1->1->-1 [44] 0/-1/-1->1->-1 [45] 0/-1/-1->1->-1 [46] 0/-1/-1->1->-1 [47] 0/-1/-1->1->-1 [48] 0/-1/-1->1->-1 [49] 0/-1/-1->1->-1 [50] 0/-1/-1->1->-1 [51] 0/-1/-
+gx10-e146:515:515 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-e146:515:515 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 3
+gx10-e146:515:515 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-e146:515:515 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-e146:515:515 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-e146:515:524 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 6
+gx10-e146:515:523 [0] NCCL INFO [Proxy Service] Device 0 CPU core 7
+gx10-e146:515:523 [0] NCCL INFO proxy listening socket at 192.168.1.6<56161>
+gx10-6b41:292:292 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+gx10-6b41:292:292 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+gx10-6b41:292:292 [0] NCCL INFO threadThresholds 8/8/64 | 24/8/64 | 512 | 512
+gx10-6b41:292:292 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+gx10-6b41:292:292 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-6b41:292:292 [0] NCCL INFO ncclCommInitRankConfig comm 0xbe6f5ab44600 rank 2 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x742f19cebb9d075e - Init COMPLETE
+gx10-6b41:292:292 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 2 nranks 3 total 0.30 (kernels 0.18, alloc 0.05, bootstrap 0.03, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+spark-5fa1:1458:1458 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+spark-5fa1:1458:1458 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+spark-5fa1:1458:1458 [0] NCCL INFO threadThresholds 8/8/64 | 24/8/64 | 512 | 512
+spark-5fa1:1458:1458 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+spark-5fa1:1458:1458 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-e146:515:515 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+gx10-e146:515:515 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+gx10-e146:515:515 [0] NCCL INFO threadThresholds 8/8/64 | 24/8/64 | 512 | 512
+gx10-e146:515:515 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+gx10-e146:515:515 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-e146:515:515 [0] NCCL INFO ncclCommInitRankConfig comm 0xb533659ec430 rank 1 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x742f19cebb9d075e - Init COMPLETE
+gx10-e146:515:515 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 1 nranks 3 total 0.30 (kernels 0.17, alloc 0.05, bootstrap 0.05, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+spark-5fa1:1458:1458 [0] NCCL INFO CC Off, workFifoBytes 1048576
+spark-5fa1:1458:1458 [0] NCCL INFO ncclCommInitRankConfig comm 0xbfb03eb0edf0 rank 0 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x742f19cebb9d075e - Init COMPLETE
+spark-5fa1:1458:1458 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 0 nranks 3 total 0.30 (kernels 0.18, alloc 0.03, bootstrap 0.06, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+gx10-e146:515:515 [0] NCCL INFO Channel 32/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 33/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 34/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 35/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 36/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 37/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 38/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 39/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 40/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:525 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 9
+gx10-e146:515:515 [0] NCCL INFO Channel 41/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 42/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 43/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 44/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 45/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 46/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 47/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 48/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 49/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 50/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 51/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 52/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 53/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 54/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 55/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 56/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 57/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 58/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 59/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 60/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 61/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 62/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 63/0 : 0[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 00/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 01/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 02/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 03/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 04/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 05/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 06/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 07/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 08/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 09/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 10/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 11/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 12/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 13/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 14/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 15/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 16/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 17/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 18/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 19/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 20/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 21/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 22/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 23/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 24/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 25/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 26/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 27/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 28/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 29/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 30/0 : 1[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 31/0 : 1[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1469 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 1
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 00/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 01/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 02/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 03/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 04/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 00/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 01/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 02/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 03/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 04/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 05/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 06/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 07/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 08/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 09/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 10/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 11/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 12/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 13/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 14/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 05/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 06/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 07/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 08/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:302 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 1
+gx10-6b41:292:292 [0] NCCL INFO Channel 15/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 16/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 17/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 09/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 10/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 11/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 18/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 19/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 20/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 12/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 21/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 22/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 23/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 13/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 24/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 25/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 26/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 14/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 15/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 16/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 27/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 28/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 29/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 17/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 18/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 30/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 31/0 : 1[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 00/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 01/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 19/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 02/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 20/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 21/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 03/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 22/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 04/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 05/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 06/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 23/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 07/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 24/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 25/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 08/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 09/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 26/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 10/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 27/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 11/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 28/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 12/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 29/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 30/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 13/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 14/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 15/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 31/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 32/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 16/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 17/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 33/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 18/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 34/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 19/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 35/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 36/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 37/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 20/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 21/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 22/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 23/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 24/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 38/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 25/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 39/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 40/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 26/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 41/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 42/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 43/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 27/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 28/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 29/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 30/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 31/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 32/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 33/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 44/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 45/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 34/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 46/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 35/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 36/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 47/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 37/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 48/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 38/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 49/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 39/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 40/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 50/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 41/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 42/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 43/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 44/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 45/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 46/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 47/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 48/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 49/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 50/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 51/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 52/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 53/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 54/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 55/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 56/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 57/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 58/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 59/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 60/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 61/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 62/0 : 2[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 63/0 : 2[0] -> 0[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 51/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 52/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 53/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 54/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 55/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 56/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 57/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 58/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 59/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 60/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 61/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 62/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 63/0 : 2[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 32/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 33/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 34/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 35/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 36/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 37/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 38/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 39/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 40/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 41/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 42/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 43/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 44/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 45/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 46/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 47/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 48/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 49/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 50/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 51/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 52/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 53/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 54/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 55/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 56/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 57/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 58/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 59/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 60/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 61/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 62/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 63/0 : 0[0] -> 1[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 32/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 33/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 34/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 35/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 36/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 37/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 38/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 39/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 40/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 41/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 42/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 43/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 44/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 45/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 46/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 47/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 48/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 49/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 50/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 51/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 52/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 53/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 54/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 55/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 56/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 57/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 58/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 59/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 60/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 61/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 62/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 63/0 : 1[0] -> 0[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 00/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 01/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 02/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 03/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 04/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 05/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 06/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 07/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 08/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 09/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 10/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 11/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 12/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 13/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 14/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 15/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 16/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 17/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 18/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 19/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 20/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 21/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 22/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 23/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 24/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 25/0 : 0[0] -> 2[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 00/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 26/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 27/0 : 0[0] -> 2[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 01/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 02/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 03/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 28/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 29/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 30/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 31/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 32/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 33/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 34/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 35/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 36/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 37/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 38/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 39/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 40/0 : 0[0] -> 2[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 04/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 05/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 41/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 42/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 43/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 44/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 45/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 46/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 47/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 48/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 49/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 50/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 51/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 52/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 53/0 : 0[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 00/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 54/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 55/0 : 0[0] -> 2[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 01/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 02/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 06/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 07/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 08/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 56/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 57/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 58/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 59/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 60/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 61/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 62/0 : 0[0] -> 2[0] [send] via NET/IB/2
+spark-5fa1:1458:1458 [0] NCCL INFO Channel 63/0 : 0[0] -> 2[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 09/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 10/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 11/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 03/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 04/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 12/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 05/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 06/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 13/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 07/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 08/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 09/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 10/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 11/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 12/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 13/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 14/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 15/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 14/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 15/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 16/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 17/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 18/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 16/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 17/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 18/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 19/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 20/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 21/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 22/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 23/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 24/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 25/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 26/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 27/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 28/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 29/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 30/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 31/0 : 2[0] -> 1[0] [receive] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 32/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 33/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 34/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 35/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 36/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 37/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 38/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 39/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 40/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 41/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 42/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 43/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 44/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 45/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 46/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 47/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 48/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 49/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 50/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 51/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 52/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 53/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 54/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 55/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 56/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 57/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 58/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 59/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 60/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 61/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 62/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-e146:515:515 [0] NCCL INFO Channel 63/0 : 1[0] -> 0[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 19/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 20/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 21/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 22/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 23/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 24/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 25/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 26/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 27/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 28/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 29/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 30/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 31/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 32/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 33/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 34/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 35/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 36/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 37/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 38/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 39/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 40/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 41/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 42/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 43/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 44/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 45/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 46/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 47/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 48/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 49/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 50/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 51/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 52/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 53/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 54/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 55/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 56/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 57/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 58/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 59/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 60/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 61/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 62/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 63/0 : 0[0] -> 2[0] [receive] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 00/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 01/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 02/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 03/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 04/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 05/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 06/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 07/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 08/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 09/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 10/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 11/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 12/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 13/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 14/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 15/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 16/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 17/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 18/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 19/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 20/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 21/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 22/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 23/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 24/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 25/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 26/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 27/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 28/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 29/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 30/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:292 [0] NCCL INFO Channel 31/0 : 2[0] -> 1[0] [send] via NET/IB/2
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xf50a8405c000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c03d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c081000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c0c5000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c05c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c0a4000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c109000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xf50a840a0000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xf50a840e8000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c0ec000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c134000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c17c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c1c4000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c20c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c254000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c29c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c2e4000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c32c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c374000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c3bc000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c404000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c44c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c494000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c4dc000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c524000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c56c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c5b4000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c5fc000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c644000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c68c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c6d4000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c71c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78106 pkey=0 pd=0xf50a8405bd30 oooRq=0
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c764000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c7ac000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c7f4000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c83c000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=2905 pkey=0 pd=0xe94b9c07dd50 oooRq=0
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c884000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c8cc000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c914000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xecd27c95c000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=71964 pkey=0 pd=0xf50a840e4680 oooRq=0
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=5429 pkey=0 pd=0xe94b9c07de30 oooRq=0
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xecd27c9a0000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 78106 mtu 5 GID 3 (0/1A6640AFFFF0000) ctsFifoRkey=0x15ba7a ctsFifoLkey=0x15ba7a
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 78106 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 71964 mtu 5 GID 3 (0/1A0640AFFFF0000) ctsFifoRkey=0x1a605d ctsFifoLkey=0x1a605d
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 71964 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 2905 mtu 5 GID 3 (0/2A0640AFFFF0000) ctsFifoRkey=0x16fdba ctsFifoLkey=0x16fdba
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 2905 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 5429 mtu 5 GID 3 (0/1A4640AFFFF0000) ctsFifoRkey=0x19b5b5 ctsFifoLkey=0x19b5b5
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 5429 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c1c5000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c209000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78107 pkey=0 pd=0xf50a8405bd30 oooRq=0
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c24d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c291000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c2d5000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=71965 pkey=0 pd=0xf50a840e4680 oooRq=0
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c319000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c35d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c3a1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c3e5000)
+spark-5fa1:1458:1467 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=88974 pkey=0 pd=0xecd27c7abf70 oooRq=0
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c429000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c46d000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 78107 mtu 5 GID 3 (0/1A6640AFFFF0000) ctsFifoRkey=0x1ac464 ctsFifoLkey=0x1ac464
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 78107 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c4b1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c4f5000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c539000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 71965 mtu 5 GID 3 (0/1A0640AFFFF0000) ctsFifoRkey=0x1cbb6b ctsFifoLkey=0x1cbb6b
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 71965 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xf50a84208000)
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c57d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=2906 pkey=0 pd=0xe94b9c07dd50 oooRq=0
+gx10-6b41:292:300 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78108 pkey=0 pd=0xf50a8405bd30 oooRq=0
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=5430 pkey=0 pd=0xe94b9c07de30 oooRq=0
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 2906 mtu 5 GID 3 (0/2A0640AFFFF0000) ctsFifoRkey=0x16f1af ctsFifoLkey=0x16f1af
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 2906 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 5430 mtu 5 GID 3 (0/1A4640AFFFF0000) ctsFifoRkey=0x18d8d1 ctsFifoLkey=0x18d8d1
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 5430 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c625000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c669000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c6ad000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c6f1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c735000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c779000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c7bd000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c801000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c845000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c889000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c8cd000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c911000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9c955000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9c999000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9c9e1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9ca29000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9ca71000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cab9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cb01000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cb49000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cb91000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cbd9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cc21000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cc69000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9ccb1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9ccf9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cd41000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cd89000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cdd1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9ce19000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9ce61000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cea9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cef1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cf39000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cf81000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9cfc9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d011000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d059000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d0a1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d0e9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d131000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d179000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d1c1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d209000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d251000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d299000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d2e1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d329000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d371000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d3b9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d401000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d449000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d491000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d4d9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d521000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d569000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d5b1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d5f9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d641000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d689000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d6d1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d719000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d761000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d7a9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d7f1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d839000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d881000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d8c9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d911000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d959000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d9a1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9d9e9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9da31000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9da79000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9dac1000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9db09000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe94b9db51000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9db99000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dbdd000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dc21000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dc65000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dca9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dced000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dd31000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dd75000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9ddb9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9ddfd000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9de41000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9de85000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dec9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9df0d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9df51000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9df95000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9dfd9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e01d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e061000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e0a5000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e0e9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e12d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e171000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e1b5000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e1f9000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e23d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e281000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e2c5000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e309000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e34d000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e391000)
+gx10-e146:515:523 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe94b9e3d5000)
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 1/35 after 100 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 1/35 after 100 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 2/35 after 200 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 2/35 after 200 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 3/35 after 300 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 3/35 after 300 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 4/35 after 400 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 4/35 after 400 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 5/35 after 500 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 5/35 after 500 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 6/35 after 600 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 6/35 after 600 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 7/35 after 700 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 7/35 after 700 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 8/35 after 800 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 8/35 after 800 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 9/35 after 900 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 9/35 after 900 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 10/35 after 1000 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 10/35 after 1000 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 11/35 after 1100 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 11/35 after 1100 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 12/35 after 1200 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 12/35 after 1200 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 13/35 after 1300 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 13/35 after 1300 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 14/35 after 1400 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 14/35 after 1400 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 15/35 after 1500 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 15/35 after 1500 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 16/35 after 1600 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 16/35 after 1600 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 17/35 after 1700 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 17/35 after 1700 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 18/35 after 1800 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 18/35 after 1800 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 19/35 after 1900 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 19/35 after 1900 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 20/35 after 2000 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 20/35 after 2000 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 21/35 after 2100 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 21/35 after 2100 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 22/35 after 2200 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 22/35 after 2200 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 23/35 after 2300 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 23/35 after 2300 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 24/35 after 2400 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 24/35 after 2400 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 25/35 after 2500 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 25/35 after 2500 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 26/35 after 2600 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 26/35 after 2600 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 27/35 after 2700 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 27/35 after 2700 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 28/35 after 2800 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 28/35 after 2800 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 29/35 after 2900 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 29/35 after 2900 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 30/35 after 3000 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 30/35 after 3000 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 31/35 after 3100 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 31/35 after 3100 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 32/35 after 3200 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 32/35 after 3200 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 33/35 after 3300 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 33/35 after 3300 msec of sleep
+spark-5fa1:1458:1467 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1, retrying 34/35 after 3400 msec of sleep
+gx10-6b41:292:300 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 34/35 after 3400 msec of sleep
+
+[2026-10-10 02:26:44] spark-5fa1:1458:1467 [0] misc/ibvwrap.cc:376 (wrap_ibv_modify_qp) NCCL WARN Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.166.1
+spark-5fa1:1458:1467 [0] NCCL INFO HINT: In many cases this error occurs when NICs are not cross-rail connected.
+spark-5fa1:1458:1467 [0] NCCL INFO HINT: To confirm, you can set NCCL_CROSS_NIC=0 to disable cross-rail communication.
+spark-5fa1:1458:1467 [0] NCCL INFO HINT: See https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-cross-nic for more information.
+spark-5fa1:1458:1467 [0] NCCL INFO transport/net_ib/connect.cc:451 (ncclIbQpRtr) -> 2
+spark-5fa1:1458:1467 [0] NCCL INFO transport/net_ib/connect.cc:1256 (ncclIbReceiverQpsCreateToRts) -> 2
+spark-5fa1:1458:1467 [0] NCCL INFO transport/net_ib/connect.cc:1560 (ncclIbAcceptImpl) -> 2
+spark-5fa1:1458:1467 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO transport/net.cc:572 (recvConnect) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO transport.cc:269 (ncclTransportP2pSetup) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO transport/generic.cc:60 (ncclTransportTreeConnect) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO group.cc:158 (ncclCollPreconnect) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO group.cc:220 (ncclCollPreconnectFunc) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 2 [Async thread]
+spark-5fa1:1458:1458 [0] NCCL INFO group.cc:678 (groupLaunch) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 2
+spark-5fa1:1458:1458 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 2
+spark-5fa1: Test NCCL failure all_reduce.cu:507 'unhandled system error (run with NCCL_DEBUG=INFO for details) / '
+ .. spark-5fa1 pid 1458: Test failure common.cu:597
+ .. spark-5fa1 pid 1458: Test failure common.cu:928
+ .. spark-5fa1 pid 1458: Test failure all_reduce.cu:574
+ .. spark-5fa1 pid 1458: Test failure common.cu:972
+ .. spark-5fa1 pid 1458: Test failure common.cu:1768
+ .. spark-5fa1 pid 1458: Test failure common.cu:1454
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<53255>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<46199>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<55249>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<45479>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+gx10-e146:515:515 [0] NCCL INFO transport.cc:246 (ncclTransportP2pSetup) -> 6
+gx10-e146:515:515 [0] NCCL INFO transport/generic.cc:60 (ncclTransportTreeConnect) -> 6
+gx10-e146:515:515 [0] NCCL INFO group.cc:158 (ncclCollPreconnect) -> 6
+gx10-e146:515:515 [0] NCCL INFO group.cc:220 (ncclCollPreconnectFunc) -> 6
+gx10-e146:515:515 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 6 [Async thread]
+gx10-e146:515:515 [0] NCCL INFO group.cc:678 (groupLaunch) -> 6
+gx10-e146:515:515 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 6
+gx10-e146:515:515 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<38506>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:1456 (ncclIbAcceptImpl) -> 6
+gx10-e146: Test NCCL failure all_reduce.cu:507 'remote process exited or there was a network error / '
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 6
+ .. gx10-e146 pid 515: Test failure common.cu:597
+ .. gx10-e146 pid 515: Test failure common.cu:928
+ .. gx10-e146 pid 515: Test failure all_reduce.cu:574
+ .. gx10-e146 pid 515: Test failure common.cu:972
+ .. gx10-e146 pid 515: Test failure common.cu:1768
+ .. gx10-e146 pid 515: Test failure common.cu:1454
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<36051>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<43713>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<55051>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<46741>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<55673>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<58971>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<38603>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<49515>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<59659>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<33895>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<37729>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<58343>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<40601>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<42147>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<37987>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<56171>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<57215>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<49529>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<34685>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<47825>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<34395>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<54295>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<39557>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<35929>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<45717>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<48071>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<53171>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-e146:515:523 [0] misc/socket.cc:59 (socketProgress) NCCL WARN socketProgress: Connection closed by remote peer sparkmain<48249>
+gx10-e146:515:523 [0] NCCL INFO misc/socket.cc:609 (ncclSocketProgress) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net_ib/connect.cc:873 (ncclIbConnectImpl) -> 6
+gx10-e146:515:523 [0] NCCL INFO transport/net.cc:892 (sendProxyConnect) -> 6
+
+[2026-10-10 02:26:44] gx10-6b41:292:300 [0] misc/ibvwrap.cc:376 (wrap_ibv_modify_qp) NCCL WARN Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2
+gx10-6b41:292:300 [0] NCCL INFO HINT: In many cases this error occurs when NICs are not cross-rail connected.
+gx10-6b41:292:300 [0] NCCL INFO HINT: To confirm, you can set NCCL_CROSS_NIC=0 to disable cross-rail communication.
+gx10-6b41:292:300 [0] NCCL INFO HINT: See https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-cross-nic for more information.
+gx10-6b41:292:300 [0] NCCL INFO transport/net_ib/connect.cc:451 (ncclIbQpRtr) -> 2
+gx10-6b41:292:300 [0] NCCL INFO transport/net_ib/connect.cc:1256 (ncclIbReceiverQpsCreateToRts) -> 2
+gx10-6b41:292:300 [0] NCCL INFO transport/net_ib/connect.cc:1560 (ncclIbAcceptImpl) -> 2
+gx10-6b41:292:300 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 2
+gx10-6b41:292:292 [0] NCCL INFO transport/net.cc:572 (recvConnect) -> 2
+gx10-6b41:292:292 [0] NCCL INFO transport.cc:269 (ncclTransportP2pSetup) -> 2
+gx10-6b41:292:292 [0] NCCL INFO transport/generic.cc:60 (ncclTransportTreeConnect) -> 2
+gx10-6b41:292:292 [0] NCCL INFO group.cc:158 (ncclCollPreconnect) -> 2
+gx10-6b41:292:292 [0] NCCL INFO group.cc:220 (ncclCollPreconnectFunc) -> 2
+gx10-6b41:292:292 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 2 [Async thread]
+gx10-6b41:292:292 [0] NCCL INFO group.cc:678 (groupLaunch) -> 2
+gx10-6b41:292:292 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 2
+gx10-6b41:292:292 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 2
+gx10-6b41: Test NCCL failure all_reduce.cu:507 'unhandled system error (run with NCCL_DEBUG=INFO for details) / '
+ .. gx10-6b41 pid 292: Test failure common.cu:597
+ .. gx10-6b41 pid 292: Test failure common.cu:928
+ .. gx10-6b41 pid 292: Test failure all_reduce.cu:574
+ .. gx10-6b41 pid 292: Test failure common.cu:972
+ .. gx10-6b41 pid 292: Test failure common.cu:1768
+ .. gx10-6b41 pid 292: Test failure common.cu:1454
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[55358,1],0]
+  Exit code:    3
+--------------------------------------------------------------------------
+# exit=3

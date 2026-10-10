@@ -1,0 +1,14 @@
+s1-s2.both.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 36.7 lat_min_ip 22.4 lat64K 70.01 peakbusbw 24.0 @ 4294967296 busbw@max 24.0 wrong 0
+s1-s2.rail1.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 25.55 lat_min_ip 34.82 lat64K 64.89 peakbusbw 12.91 @ 4294967296 busbw@max 12.91 wrong 0
+s2-s4.both.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 33.64 lat_min_ip 28.2 lat64K 75.4 peakbusbw 23.94 @ 4294967296 busbw@max 23.94 wrong 0
+s2-s4.rail1.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 25.24 lat_min_ip 31.21 lat64K 63.91 peakbusbw 13.31 @ 4294967296 busbw@max 13.31 wrong 0
+s4-sm.both.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 35.02 lat_min_ip 34.76 lat64K 71.28 peakbusbw 24.03 @ 4294967296 busbw@max 24.03 wrong 0
+s4-sm.rail1.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 99.53 lat_min_ip 23.39 lat64K 65.38 peakbusbw 13.5 @ 4294967296 busbw@max 13.5 wrong 0
+sm-s1.both.all_gather maxsize 4294967296 minsize 32 lat_min_oop 22.08 lat_min_ip 22.14 lat64K 49.43 peakbusbw 23.81 @ 4294967296 busbw@max 23.81 wrong 0
+sm-s1.both.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 39.34 lat_min_ip 42.03 lat64K 65.68 peakbusbw 24.08 @ 4294967296 busbw@max 24.08 wrong 0
+sm-s1.both.alltoall maxsize 4294967296 minsize 32 lat_min_oop 27.37 lat_min_ip 26.66 lat64K 38.97 peakbusbw 22.99 @ 4294967296 busbw@max 22.99 wrong 0
+sm-s1.both.reduce_scatter maxsize 4294967296 minsize 32 lat_min_oop 21.47 lat_min_ip 19.0 lat64K 47.41 peakbusbw 23.52 @ 4294967296 busbw@max 23.52 wrong 0
+sm-s1.rail1.all_gather maxsize 4294967296 minsize 32 lat_min_oop 22.62 lat_min_ip 23.08 lat64K 43.85 peakbusbw 12.96 @ 4294967296 busbw@max 12.96 wrong 0
+sm-s1.rail1.all_reduce maxsize 4294967296 minsize 8 lat_min_oop 29.5 lat_min_ip 33.86 lat64K 73.18 peakbusbw 13.05 @ 4294967296 busbw@max 13.05 wrong 0
+sm-s1.rail1.alltoall maxsize 4294967296 minsize 32 lat_min_oop 27.38 lat_min_ip 29.16 lat64K 29.8 peakbusbw 12.66 @ 4294967296 busbw@max 12.66 wrong 0
+sm-s1.rail1.reduce_scatter maxsize 4294967296 minsize 32 lat_min_oop 24.7 lat_min_ip 21.51 lat64K 44.5 peakbusbw 12.97 @ 4294967296 busbw@max 12.97 wrong 0

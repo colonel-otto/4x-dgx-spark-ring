@@ -1,0 +1,244 @@
+# docker exec ntests_node mpirun --allow-run-as-root --mca btl_tcp_if_include enP7s7 --mca oob_tcp_if_include enP7s7 -np 1 -host 192.168.1.70:1 -x NCCL_SOCKET_IFNAME=enp1s0f0np0 -x NCCL_IB_HCA==rocep1s0f0 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/alltoall_perf -b 8 -e 4G -f 2 -g 1 : -np 1 -host 192.168.1.6:1 -x NCCL_SOCKET_IFNAME=enp1s0f1np1 -x NCCL_IB_HCA==rocep1s0f1 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/alltoall_perf -b 8 -e 4G -f 2 -g 1
+# nccl-tests version 2.19.7 nccl-headers=23007 nccl-library=23007
+# Collective test starting: alltoall_perf
+# nThread 1 nGpus 1 minBytes 8 maxBytes 4294967296 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid   1277 on spark-5fa1 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  1 Group  0 Pid    361 on  gx10-e146 device  0 [000f:01:00] NVIDIA GB10
+spark-5fa1:1277:1277 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+spark-5fa1:1277:1277 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+spark-5fa1:1277:1277 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enp1s0f0np0
+spark-5fa1:1277:1277 [0] NCCL INFO cudaDriverVersion 13000
+spark-5fa1:1277:1277 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+spark-5fa1:1277:1277 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:361:361 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-e146:361:361 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-e146:361:361 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:361:361 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enp1s0f1np1
+gx10-e146:361:361 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-e146:361:361 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:361:361 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-e146:361:361 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-e146:361:361 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-e146:361:361 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-e146:361:361 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f1
+spark-5fa1:1277:1277 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+spark-5fa1:1277:1277 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+spark-5fa1:1277:1277 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1277:1277 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1277:1277 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0
+spark-5fa1:1277:1277 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xc12d8f859d10 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:361:361 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xc11db3141c60 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1277:1277 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1277:1277 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [RO]; OOB enp1s0f0np0:10.100.164.2<0>
+spark-5fa1:1277:1277 [0] NCCL INFO Initialized NET plugin IB
+spark-5fa1:1277:1277 [0] NCCL INFO Assigned NET plugin IB to comm
+spark-5fa1:1277:1277 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+spark-5fa1:1277:1277 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+spark-5fa1:1277:1277 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+spark-5fa1:1277:1277 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+spark-5fa1:1277:1277 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+spark-5fa1:1277:1277 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+spark-5fa1:1277:1277 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+spark-5fa1:1277:1277 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+spark-5fa1:1277:1277 [0] NCCL INFO Using network IB
+spark-5fa1:1277:1277 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-e146:361:361 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:361:361 [0] NCCL INFO NET/IB : Using [0]rocep1s0f1:1/RoCE [RO]; OOB enp1s0f1np1:10.100.164.1<0>
+gx10-e146:361:361 [0] NCCL INFO Initialized NET plugin IB
+gx10-e146:361:361 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-e146:361:361 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-e146:361:361 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-e146:361:361 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-e146:361:361 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-e146:361:361 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-e146:361:361 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-e146:361:361 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-e146:361:361 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-e146:361:361 [0] NCCL INFO Using network IB
+gx10-e146:361:361 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+spark-5fa1:1277:1277 [0] NCCL INFO [Rank 0] ncclCommInitRankConfig comm 0xc12d8cda3db0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId f01000 commId 0x5676e10366a32243 - Init START
+gx10-e146:361:361 [0] NCCL INFO [Rank 1] ncclCommInitRankConfig comm 0xc11db067fae0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId f01000 commId 0x5676e10366a32243 - Init START
+spark-5fa1:1277:1277 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-e146:361:361 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+spark-5fa1:1277:1277 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1277:1277 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1277:1277 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:361:361 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f1'
+gx10-e146:361:361 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f1'
+gx10-e146:361:361 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f1'
+gx10-e146:361:361 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0).
+gx10-e146:361:361 [0] NCCL INFO Rank 1: 1 Net devices
+gx10-e146:361:361 [0] NCCL INFO Rank 1: 0 CollNet devices
+spark-5fa1:1277:1277 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0).
+spark-5fa1:1277:1277 [0] NCCL INFO Rank 0: 1 Net devices
+spark-5fa1:1277:1277 [0] NCCL INFO Rank 0: 0 CollNet devices
+spark-5fa1:1277:1277 [0] NCCL INFO Local Net device counts across ranks: min 1 max 1
+spark-5fa1:1277:1277 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+spark-5fa1:1277:1277 [0] NCCL INFO comm 0xc12d8cda3db0 rank 0 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 00/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 01/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 02/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 03/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 04/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 05/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 06/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 07/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 08/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 09/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 10/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 11/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 12/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 13/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 14/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 15/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 16/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 17/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 18/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 19/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 20/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 21/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 22/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 23/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 24/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 25/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 26/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 27/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 28/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 29/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 30/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 31/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 32/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 33/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 34/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 35/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 36/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 37/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 38/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 39/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 40/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 41/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 42/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 43/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 44/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 45/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 46/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 47/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 48/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 49/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 50/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 51/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 52/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 53/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 54/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 55/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 56/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 57/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 58/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 59/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 60/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 61/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 62/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 63/64 : 0 1
+spark-5fa1:1277:1277 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1 [2] 1/-1/-1->0->-1 [3] 1/-1/-1->0->-1 [4] 1/-1/-1->0->-1 [5] 1/-1/-1->0->-1 [6] 1/-1/-1->0->-1 [7] 1/-1/-1->0->-1 [8] 1/-1/-1->0->-1 [9] 1/-1/-1->0->-1 [10] 1/-1/-1->0->-1 [11] 1/-1/-1->0->-1 [12] 1/-1/-1->0->-1 [13] 1/-1/-1->0->-1 [14] 1/-1/-1->0->-1 [15] 1/-1/-1->0->-1 [16] 1/-1/-1->0->-1 [17] 1/-1/-1->0->-1 [18] 1/-1/-1->0->-1 [19] 1/-1/-1->0->-1 [20] 1/-1/-1->0->-1 [21] 1/-1/-1->0->-1 [22] 1/-1/-1->0->-1 [23] 1/-1/-1->0->-1 [24] 1/-1/-1->0->-1 [25] 1/-1/-1->0->-1 [26] 1/-1/-1->0->-1 [27] 1/-1/-1->0->-1 [28] 1/-1/-1->0->-1 [29] 1/-1/-1->0->-1 [30] 1/-1/-1->0->-1 [31] 1/-1/-1->0->-1 [32] -1/-1/-1->0->1 [33] -1/-1/-1->0->1 [34] -1/-1/-1->0->1 [35] -1/-1/-1->0->1 [36] -1/-1/-1->0->1 [37] -1/-1/-1->0->1 [38] -1/-1/-1->0->1 [39] -1/-1/-1->0->1 [40] -1/-1/-1->0->1 [41] -1/-1/-1->0->1 [42] -1/-1/-1->0->1 [43] -1/-1/-1->0->1 [44] -1/-1/-1->0->1 [45] -1/-1/-1->0->1 [46] -1/-1/-1->0->1 [47] -1/-1/-1->0->1 [48] -1/-1/-1->0->1 [49] -1/-1/-1->0->1 [50] -1/-1/-1->0->1 [51] -1/-1/
+spark-5fa1:1277:1277 [0] NCCL INFO P2P Chunksize set to 262144
+spark-5fa1:1277:1277 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 2
+spark-5fa1:1277:1277 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+spark-5fa1:1277:1277 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+spark-5fa1:1277:1277 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+spark-5fa1:1277:1285 [0] NCCL INFO [Proxy Service] Device 0 CPU core 0
+spark-5fa1:1277:1285 [0] NCCL INFO proxy listening socket at 10.100.164.2<53495>
+gx10-e146:361:361 [0] NCCL INFO comm 0xc11db067fae0 rank 1 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+gx10-e146:361:361 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0 [2] -1/-1/-1->1->0 [3] -1/-1/-1->1->0 [4] -1/-1/-1->1->0 [5] -1/-1/-1->1->0 [6] -1/-1/-1->1->0 [7] -1/-1/-1->1->0 [8] -1/-1/-1->1->0 [9] -1/-1/-1->1->0 [10] -1/-1/-1->1->0 [11] -1/-1/-1->1->0 [12] -1/-1/-1->1->0 [13] -1/-1/-1->1->0 [14] -1/-1/-1->1->0 [15] -1/-1/-1->1->0 [16] -1/-1/-1->1->0 [17] -1/-1/-1->1->0 [18] -1/-1/-1->1->0 [19] -1/-1/-1->1->0 [20] -1/-1/-1->1->0 [21] -1/-1/-1->1->0 [22] -1/-1/-1->1->0 [23] -1/-1/-1->1->0 [24] -1/-1/-1->1->0 [25] -1/-1/-1->1->0 [26] -1/-1/-1->1->0 [27] -1/-1/-1->1->0 [28] -1/-1/-1->1->0 [29] -1/-1/-1->1->0 [30] -1/-1/-1->1->0 [31] -1/-1/-1->1->0 [32] 0/-1/-1->1->-1 [33] 0/-1/-1->1->-1 [34] 0/-1/-1->1->-1 [35] 0/-1/-1->1->-1 [36] 0/-1/-1->1->-1 [37] 0/-1/-1->1->-1 [38] 0/-1/-1->1->-1 [39] 0/-1/-1->1->-1 [40] 0/-1/-1->1->-1 [41] 0/-1/-1->1->-1 [42] 0/-1/-1->1->-1 [43] 0/-1/-1->1->-1 [44] 0/-1/-1->1->-1 [45] 0/-1/-1->1->-1 [46] 0/-1/-1->1->-1 [47] 0/-1/-1->1->-1 [48] 0/-1/-1->1->-1 [49] 0/-1/-1->1->-1 [50] 0/-1/-1->1->-1 [51] 0/-1/-
+gx10-e146:361:361 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-e146:361:361 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 2
+gx10-e146:361:361 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-e146:361:361 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-e146:361:361 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-e146:361:368 [0] NCCL INFO [Proxy Service] Device 0 CPU core 0
+gx10-e146:361:368 [0] NCCL INFO proxy listening socket at 10.100.164.1<44945>
+spark-5fa1:1277:1286 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 0
+gx10-e146:361:369 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 0
+spark-5fa1:1277:1277 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+spark-5fa1:1277:1277 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+spark-5fa1:1277:1277 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+spark-5fa1:1277:1277 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+spark-5fa1:1277:1277 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-e146:361:361 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+gx10-e146:361:361 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+gx10-e146:361:361 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+gx10-e146:361:361 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+gx10-e146:361:361 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+spark-5fa1:1277:1277 [0] NCCL INFO CC Off, workFifoBytes 1048576
+spark-5fa1:1277:1277 [0] NCCL INFO ncclCommInitRankConfig comm 0xc12d8cda3db0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId f01000 commId 0x5676e10366a32243 - Init COMPLETE
+spark-5fa1:1277:1277 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 0 nranks 2 total 0.32 (kernels 0.22, alloc 0.03, bootstrap 0.02, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.04, rest 0.00)
+gx10-e146:361:361 [0] NCCL INFO ncclCommInitRankConfig comm 0xc11db067fae0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId f01000 commId 0x5676e10366a32243 - Init COMPLETE
+gx10-e146:361:361 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 1 nranks 2 total 0.32 (kernels 0.21, alloc 0.04, bootstrap 0.02, allgathers 0.01, topo 0.01, graphs 0.00, connections 0.04, rest 0.00)
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+spark-5fa1:1277:1277 [0] NCCL INFO Symmetric VA size=124GB
+gx10-e146:361:361 [0] NCCL INFO Symmetric VA size=124GB
+gx10-e146:361:370 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 0
+gx10-e146:361:361 [0] NCCL INFO Channel 32/1 : 0[0] -> 1[0] [receive] via NET/IB/0/Shared
+spark-5fa1:1277:1287 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 0
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 32/1 : 1[0] -> 0[0] [receive] via NET/IB/0/Shared
+gx10-e146:361:361 [0] NCCL INFO Channel 32/1 : 1[0] -> 0[0] [send] via NET/IB/0/Shared
+spark-5fa1:1277:1277 [0] NCCL INFO Channel 32/1 : 0[0] -> 1[0] [send] via NET/IB/0/Shared
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xfbc3b800b000)
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xfbc3b804f000)
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xf09b4800b000)
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xf09b4804f000)
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=1 nmdevs=1 qp_num=88968 pkey=0 pd=0xf09b4804b940 oooRq=0
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 0 IbDev 0 Port 1 qp_num 88968 mtu 5 GID 3 (0/2A4640AFFFF0000) ctsFifoRkey=0x21ef66 ctsFifoLkey=0x21ef66
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 88968 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f1 ndevs=1 nmdevs=1 qp_num=5423 pkey=0 pd=0xfbc3b804b940 oooRq=0
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 0 IbDev 0 Port 1 qp_num 5423 mtu 5 GID 3 (0/1A4640AFFFF0000) ctsFifoRkey=0x19b5b5 ctsFifoLkey=0x19b5b5
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 5423 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=1 nmdevs=1 qp_num=88969 pkey=0 pd=0xf09b4804b940 oooRq=0
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f1 ndevs=1 nmdevs=1 qp_num=5424 pkey=0 pd=0xfbc3b804b940 oooRq=0
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: Flush QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=1 nmdevs=1 qp_num=88970 pkey=0 pd=0xf09b4804b940
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: Flush QP created: port=1 dev=0 devName=rocep1s0f1 ndevs=1 nmdevs=1 qp_num=5425 pkey=0 pd=0xfbc3b804b940
+gx10-e146:361:368 [0] NCCL INFO NET/IB: ncclIbSenderQpsToRts: Set ECE: IbDev 0 Port 1 qp_num 5423 set_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+spark-5fa1:1277:1285 [0] NCCL INFO NET/IB: ncclIbSenderQpsToRts: Set ECE: IbDev 0 Port 1 qp_num 88968 set_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+           0             0     float    none      -1     0.23    0.00    0.00       0     0.18    0.00    0.00    N/A
+           0             0     float    none      -1     0.17    0.00    0.00       0     0.17    0.00    0.00    N/A
+          32             4     float    none      -1    27.38    0.00    0.00       0    29.16    0.00    0.00    N/A
+          64             8     float    none      -1    32.30    0.00    0.00       0    25.52    0.00    0.00    N/A
+         128            16     float    none      -1    23.53    0.01    0.00       0    35.02    0.00    0.00    N/A
+         256            32     float    none      -1    34.56    0.01    0.00       0    27.38    0.01    0.00    N/A
+         512            64     float    none      -1    24.56    0.02    0.01       0    24.37    0.02    0.01    N/A
+        1024           128     float    none      -1    24.23    0.04    0.02       0    31.14    0.03    0.02    N/A
+        2048           256     float    none      -1    24.65    0.08    0.04       0    32.69    0.06    0.03    N/A
+        4096           512     float    none      -1    26.65    0.15    0.08       0    25.60    0.16    0.08    N/A
+        8192          1024     float    none      -1    26.62    0.31    0.15       0    28.24    0.29    0.15    N/A
+       16384          2048     float    none      -1    28.46    0.58    0.29       0    33.01    0.50    0.25    N/A
+       32768          4096     float    none      -1    29.52    1.11    0.56       0    31.15    1.05    0.53    N/A
+       65536          8192     float    none      -1    29.80    2.20    1.10       0    34.80    1.88    0.94    N/A
+      131072         16384     float    none      -1    34.35    3.82    1.91       0    35.33    3.71    1.85    N/A
+      262144         32768     float    none      -1    48.11    5.45    2.72       0    52.10    5.03    2.52    N/A
+      524288         65536     float    none      -1   169.48    3.09    1.55       0   136.19    3.85    1.92    N/A
+     1048576        131072     float    none      -1   194.18    5.40    2.70       0   160.41    6.54    3.27    N/A
+     2097152        262144     float    none      -1   234.10    8.96    4.48       0   194.37   10.79    5.39    N/A
+     4194304        524288     float    none      -1   300.45   13.96    6.98       0   256.62   16.34    8.17    N/A
+     8388608       1048576     float    none      -1   412.79   20.32   10.16       0   370.77   22.63   11.31    N/A
+    16777216       2097152     float    none      -1   706.72   23.74   11.87       0   703.56   23.85   11.92    N/A
+    33554432       4194304     float    none      -1  1371.88   24.46   12.23       0  1371.28   24.47   12.23    N/A
+    67108864       8388608     float    none      -1  2700.57   24.85   12.42       0  2694.81   24.90   12.45    N/A
+   134217728      16777216     float    none      -1  5367.28   25.01   12.50       0  5337.45   25.15   12.57    N/A
+   268435456      33554432     float    none      -1  10657.0   25.19   12.59       0  10643.6   25.22   12.61    N/A
+   536870912      67108864     float    none      -1  21276.5   25.23   12.62       0  21271.3   25.24   12.62    N/A
+  1073741824     134217728     float    none      -1  42510.7   25.26   12.63       0  42474.5   25.28   12.64    N/A
+  2147483648     268435456     float    none      -1  84922.4   25.29   12.64       0  84882.2   25.30   12.65    N/A
+  4294967296     536870912     float    none      -1   169841   25.29   12.64       0   169577   25.33   12.66    N/A
+# Out of bounds values : 0 OK
+# Avg bus bandwidth    : 4.89542 
+#
+# Collective test concluded: alltoall_perf
+#
+
+# exit=0

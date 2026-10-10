@@ -1,0 +1,5 @@
+PING 10.100.160.1 (10.100.160.1) 56(84) bytes of data.
+
+--- 10.100.160.1 ping statistics ---
+50 packets transmitted, 50 received, 0% packet loss, time 490ms
+rtt min/avg/max/mdev = 0.994/1.384/1.469/0.101 ms

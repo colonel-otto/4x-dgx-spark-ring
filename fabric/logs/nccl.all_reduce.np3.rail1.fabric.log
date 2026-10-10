@@ -1,0 +1,97 @@
+# -np 1 -host 192.168.1.70:1 -x NCCL_SOCKET_IFNAME=enp1s0f0np0 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/all_reduce_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.6:1 -x NCCL_SOCKET_IFNAME=enp1s0f1np1 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/all_reduce_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.66:1 -x NCCL_SOCKET_IFNAME=x -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/all_reduce_perf -b 8 -e 1M -f 2 -g 1
+# nccl-tests version 2.19.7 nccl-headers=23007 nccl-library=23007
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 1 minBytes 8 maxBytes 1048576 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid   1406 on spark-5fa1 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  1 Group  0 Pid    461 on  gx10-e146 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  2 Group  0 Pid    238 on  gx10-6b41 device  0 [000f:01:00] NVIDIA GB10
+spark-5fa1:1406:1406 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+spark-5fa1:1406:1406 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+spark-5fa1:1406:1406 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enp1s0f0np0
+spark-5fa1:1406:1406 [0] NCCL INFO cudaDriverVersion 13000
+spark-5fa1:1406:1406 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+spark-5fa1:1406:1406 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-6b41:238:238 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-6b41:238:238 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-6b41:238:238 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:461:461 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-e146:461:461 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-e146:461:461 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:461:461 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enp1s0f1np1
+gx10-6b41:238:238 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-6b41:238:238 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:461:461 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-e146:461:461 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:461:461 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-e146:461:461 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-e146:461:461 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-e146:461:461 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-e146:461:461 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+gx10-e146:461:461 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xc2f54a4f87f0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:461:461 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xc2f54a539e40 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1406:1406 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+spark-5fa1:1406:1406 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+spark-5fa1:1406:1406 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1406:1406 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1406:1406 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+spark-5fa1:1406:1406 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xbdd0ab0e1c10 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:238:238 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-6b41:238:238 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-6b41:238:238 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:238:238 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:238:238 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+spark-5fa1:1406:1406 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xbdd0ab123260 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:238:238 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xab07e2cc5970 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:461:461 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:461:461 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:461:461 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enp1s0f1np1:10.100.164.1<0>
+gx10-e146:461:461 [0] NCCL INFO Initialized NET plugin IB
+gx10-e146:461:461 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-e146:461:461 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-e146:461:461 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-e146:461:461 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-e146:461:461 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-e146:461:461 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-e146:461:461 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-e146:461:461 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-e146:461:461 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-e146:461:461 [0] NCCL INFO Using network IB
+spark-5fa1:1406:1406 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1406:1406 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1406:1406 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enp1s0f0np0:10.100.164.2<0>
+spark-5fa1:1406:1406 [0] NCCL INFO Initialized NET plugin IB
+gx10-e146:461:461 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+spark-5fa1:1406:1406 [0] NCCL INFO Assigned NET plugin IB to comm
+spark-5fa1:1406:1406 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+spark-5fa1:1406:1406 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+spark-5fa1:1406:1406 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+spark-5fa1:1406:1406 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+spark-5fa1:1406:1406 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+spark-5fa1:1406:1406 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+spark-5fa1:1406:1406 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+spark-5fa1:1406:1406 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+spark-5fa1:1406:1406 [0] NCCL INFO Using network IB
+spark-5fa1:1406:1406 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-6b41:238:238 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xab07e2d06fc0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:238:238 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:238:238 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:238:238 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.66<0>
+gx10-6b41:238:238 [0] NCCL INFO Initialized NET plugin IB
+gx10-e146:461:461 [0] NCCL INFO [Rank 1] ncclCommInitRankConfig comm 0xc2f547a364a0 rank 1 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x70ff37fb2bfd5fe0 - Init START
+gx10-6b41:238:238 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-6b41:238:238 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-6b41:238:238 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-6b41:238:238 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-6b41:238:238 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-6b41:238:238 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-6b41:238:238 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-6b41:238:238 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-6b41:238:238 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-6b41:238:238 [0] NCCL INFO Using network IB
+gx10-6b41:238:238 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+spark-5fa1:1406:1406 [0] NCCL INFO [Rank 0] ncclCommInitRankConfig comm 0xbdd0a862bf50 rank 0 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x70ff37fb2bfd5fe0 - Init START
+gx10-6b41:238:238 [0] NCCL INFO [Rank 2] ncclCommInitRankConfig comm 0xab07e0203740 rank 2 nranks 3 cudaDev 0 nvmlDev 0 busId f01000 commId 0x70ff37fb2bfd5fe0 - Init START
+gx10-6b41:238:238 [0] NCCL INFO ncclOsSocketPollConnect: connect to 10.100.164.2<53079> returned Connection timed out, retrying (1/34) after sleep for 100 msec
+# exit=124

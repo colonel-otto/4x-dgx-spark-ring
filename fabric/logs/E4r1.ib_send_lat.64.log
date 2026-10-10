@@ -1,0 +1,23 @@
+---------------------------------------------------------------------------------------
+                    Send Latency Test
+ Dual-port       : OFF		Device         : rocep1s0f0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON
+ ibv_wr* API     : ON
+ TX depth        : 1
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 236[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x012f PSN 0xed3d45
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:100:162:01
+ remote address: LID 0000 QPN 0x13249 PSN 0xd9b4bd
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:100:162:02
+---------------------------------------------------------------------------------------
+ #bytes #iterations    t_min[usec]    t_max[usec]  t_typical[usec]    t_avg[usec]    t_stdev[usec]   99% percentile[usec]   99.9% percentile[usec] 
+ 64      10000          1.46           5.65         1.51     	       1.51        	0.01   		1.61    		1.94   
+---------------------------------------------------------------------------------------

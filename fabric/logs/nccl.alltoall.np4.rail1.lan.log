@@ -1,0 +1,655 @@
+# -np 1 -host 192.168.1.70:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/alltoall_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.6:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/alltoall_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.66:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/alltoall_perf -b 8 -e 1M -f 2 -g 1 : -np 1 -host 192.168.1.76:1 -x NCCL_SOCKET_IFNAME=enP7s7 -x LD_LIBRARY_PATH=/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_DISABLE=0  -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1 -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET /ntb/alltoall_perf -b 8 -e 1M -f 2 -g 1
+Authorization required, but no authorization protocol specified
+Authorization required, but no authorization protocol specified
+# nccl-tests version 2.19.7 nccl-headers=23007 nccl-library=23007
+# Collective test starting: alltoall_perf
+# nThread 1 nGpus 1 minBytes 8 maxBytes 1048576 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid   1792 on spark-5fa1 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  1 Group  0 Pid    864 on  gx10-e146 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  2 Group  0 Pid    640 on  gx10-6b41 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  3 Group  0 Pid    420 on  gx10-3c91 device  0 [000f:01:00] NVIDIA GB10
+spark-5fa1:1792:1792 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+spark-5fa1:1792:1792 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+spark-5fa1:1792:1792 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+spark-5fa1:1792:1792 [0] NCCL INFO cudaDriverVersion 13000
+spark-5fa1:1792:1792 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+spark-5fa1:1792:1792 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-6b41:640:640 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-6b41:640:640 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-6b41:640:640 [0] NCCL INFO cudaDriverVersion 13000
+gx10-6b41:640:640 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-6b41:640:640 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-6b41:640:640 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-3c91:420:420 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-3c91:420:420 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-3c91:420:420 [0] NCCL INFO cudaDriverVersion 13000
+gx10-3c91:420:420 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-3c91:420:420 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-3c91:420:420 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-e146:864:864 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-e146:864:864 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-e146:864:864 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:864:864 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-e146:864:864 [0] NCCL INFO NCCL version 2.30.7+cuda13.3
+gx10-e146:864:864 [0] NCCL INFO NCCL git version HEAD a5187fa2e
+gx10-3c91:420:420 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-3c91:420:420 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-3c91:420:420 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-3c91:420:420 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-3c91:420:420 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+gx10-3c91:420:420 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xc7dd62644f30 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:864:864 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-e146:864:864 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-e146:864:864 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-e146:864:864 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-e146:864:864 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+gx10-3c91:420:420 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xc7dd62686580 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:864:864 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xb1cf12f2e6e0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.76<0>
+gx10-3c91:420:420 [0] NCCL INFO Initialized NET plugin IB
+gx10-3c91:420:420 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-3c91:420:420 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-3c91:420:420 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-3c91:420:420 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-3c91:420:420 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-3c91:420:420 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-3c91:420:420 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-3c91:420:420 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-3c91:420:420 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-3c91:420:420 [0] NCCL INFO Using network IB
+gx10-3c91:420:420 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-e146:864:864 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xb1cf12f6fd30 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1792:1792 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+spark-5fa1:1792:1792 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+spark-5fa1:1792:1792 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1792:1792 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:1792:1792 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xc4f0252797a0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-3c91:420:420 [0] NCCL INFO [Rank 3] ncclCommInitRankConfig comm 0xc7dd5fb86a70 rank 3 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init START
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xc4f0252badf0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.70<0>
+spark-5fa1:1792:1792 [0] NCCL INFO Initialized NET plugin IB
+gx10-6b41:640:640 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-6b41:640:640 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-6b41:640:640 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:640:640 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:640:640 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1
+spark-5fa1:1792:1792 [0] NCCL INFO Assigned NET plugin IB to comm
+spark-5fa1:1792:1792 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+spark-5fa1:1792:1792 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+spark-5fa1:1792:1792 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+spark-5fa1:1792:1792 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+spark-5fa1:1792:1792 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+spark-5fa1:1792:1792 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+spark-5fa1:1792:1792 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+spark-5fa1:1792:1792 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+spark-5fa1:1792:1792 [0] NCCL INFO Using network IB
+spark-5fa1:1792:1792 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-6b41:640:640 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xbfc441532be0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:864:864 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:864:864 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:864:864 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.6<0>
+gx10-e146:864:864 [0] NCCL INFO Initialized NET plugin IB
+gx10-e146:864:864 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-e146:864:864 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-e146:864:864 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-e146:864:864 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-e146:864:864 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-e146:864:864 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-e146:864:864 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-e146:864:864 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-e146:864:864 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-e146:864:864 [0] NCCL INFO Using network IB
+gx10-e146:864:864 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-6b41:640:640 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xbfc441574230 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:1792:1792 [0] NCCL INFO [Rank 0] ncclCommInitRankConfig comm 0xc4f0227c39d0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init START
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.66<0>
+gx10-6b41:640:640 [0] NCCL INFO Initialized NET plugin IB
+gx10-6b41:640:640 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-6b41:640:640 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-6b41:640:640 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-6b41:640:640 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-6b41:640:640 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-6b41:640:640 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-6b41:640:640 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-6b41:640:640 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-6b41:640:640 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-6b41:640:640 [0] NCCL INFO Using network IB
+gx10-6b41:640:640 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-e146:864:864 [0] NCCL INFO [Rank 1] ncclCommInitRankConfig comm 0xb1cf1046c430 rank 1 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init START
+spark-5fa1:1792:1792 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-6b41:640:640 [0] NCCL INFO [Rank 2] ncclCommInitRankConfig comm 0xbfc43ea70a80 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init START
+gx10-3c91:420:420 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-e146:864:864 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-6b41:640:640 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+spark-5fa1:1792:1792 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:640:640 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1792:1792 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:1792:1792 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1792:1792 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+spark-5fa1:1792:1792 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+gx10-e146:864:864 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:640:640 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:640:640 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:640:640 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+gx10-6b41:640:640 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+gx10-e146:864:864 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:864:864 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:864:864 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:864:864 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:864:864 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:864:864 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+gx10-e146:864:864 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+gx10-3c91:420:420 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-3c91:420:420 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-3c91:420:420 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-3c91:420:420 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : Made virtual device [2] name=rocep1s0f0+rocep1s0f1 speed=400000 ndevs=2 rail=-1 plane=16385
+gx10-3c91:420:420 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'rocep1s0f0+rocep1s0f1'
+gx10-e146:864:864 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+gx10-e146:864:864 [0] NCCL INFO Rank 1: 3 Net devices
+gx10-e146:864:864 [0] NCCL INFO Rank 1: 0 CollNet devices
+spark-5fa1:1792:1792 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+gx10-6b41:640:640 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+spark-5fa1:1792:1792 [0] NCCL INFO Rank 0: 3 Net devices
+spark-5fa1:1792:1792 [0] NCCL INFO Rank 0: 0 CollNet devices
+gx10-3c91:420:420 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity =  ; CPU affinity = 0-19).
+gx10-3c91:420:420 [0] NCCL INFO Rank 3: 3 Net devices
+gx10-3c91:420:420 [0] NCCL INFO Rank 3: 0 CollNet devices
+gx10-6b41:640:640 [0] NCCL INFO Rank 2: 3 Net devices
+gx10-6b41:640:640 [0] NCCL INFO Rank 2: 0 CollNet devices
+spark-5fa1:1792:1792 [0] NCCL INFO Local Net device counts across ranks: min 3 max 3
+spark-5fa1:1792:1792 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+spark-5fa1:1792:1792 [0] NCCL INFO comm 0xc4f0227c39d0 rank 0 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 00/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 01/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 02/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 03/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 04/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 05/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 06/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 07/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 08/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 09/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 10/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 11/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 12/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 13/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 14/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 15/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 16/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 17/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 18/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 19/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 20/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 21/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 22/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 23/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 24/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 25/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 26/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 27/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 28/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 29/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 30/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 31/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 32/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 33/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 34/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 35/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 36/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 37/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 38/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 39/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 40/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 41/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 42/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 43/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 44/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 45/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 46/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 47/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 48/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 49/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 50/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 51/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 52/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 53/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 54/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 55/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 56/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 57/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 58/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 59/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 60/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 61/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 62/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 63/64 : 0 1 2 3
+spark-5fa1:1792:1792 [0] NCCL INFO Trees [0] 2/-1/-1->0->-1 [1] 2/-1/-1->0->-1 [2] 2/-1/-1->0->-1 [3] 2/-1/-1->0->-1 [4] 2/-1/-1->0->-1 [5] 2/-1/-1->0->-1 [6] 2/-1/-1->0->-1 [7] 2/-1/-1->0->-1 [8] 2/-1/-1->0->-1 [9] 2/-1/-1->0->-1 [10] 2/-1/-1->0->-1 [11] 2/-1/-1->0->-1 [12] 2/-1/-1->0->-1 [13] 2/-1/-1->0->-1 [14] 2/-1/-1->0->-1 [15] 2/-1/-1->0->-1 [16] 2/-1/-1->0->-1 [17] 2/-1/-1->0->-1 [18] 2/-1/-1->0->-1 [19] 2/-1/-1->0->-1 [20] 2/-1/-1->0->-1 [21] 2/-1/-1->0->-1 [22] 2/-1/-1->0->-1 [23] 2/-1/-1->0->-1 [24] 2/-1/-1->0->-1 [25] 2/-1/-1->0->-1 [26] 2/-1/-1->0->-1 [27] 2/-1/-1->0->-1 [28] 2/-1/-1->0->-1 [29] 2/-1/-1->0->-1 [30] 2/-1/-1->0->-1 [31] 2/-1/-1->0->-1 [32] -1/-1/-1->0->1 [33] -1/-1/-1->0->1 [34] -1/-1/-1->0->1 [35] -1/-1/-1->0->1 [36] -1/-1/-1->0->1 [37] -1/-1/-1->0->1 [38] -1/-1/-1->0->1 [39] -1/-1/-1->0->1 [40] -1/-1/-1->0->1 [41] -1/-1/-1->0->1 [42] -1/-1/-1->0->1 [43] -1/-1/-1->0->1 [44] -1/-1/-1->0->1 [45] -1/-1/-1->0->1 [46] -1/-1/-1->0->1 [47] -1/-1/-1->0->1 [48] -1/-1/-1->0->1 [49] -1/-1/-1->0->1 [50] -1/-1/-1->0->1 [51] -1/-1/
+spark-5fa1:1792:1792 [0] NCCL INFO P2P Chunksize set to 262144
+spark-5fa1:1792:1792 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+spark-5fa1:1792:1792 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+spark-5fa1:1792:1792 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+spark-5fa1:1792:1792 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+spark-5fa1:1792:1801 [0] NCCL INFO [Proxy Service] Device 0 CPU core 1
+spark-5fa1:1792:1801 [0] NCCL INFO proxy listening socket at 192.168.1.70<58105>
+spark-5fa1:1792:1802 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 6
+gx10-3c91:420:420 [0] NCCL INFO comm 0xc7dd5fb86a70 rank 3 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+gx10-3c91:420:420 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2 [4] -1/-1/-1->3->2 [5] -1/-1/-1->3->2 [6] -1/-1/-1->3->2 [7] -1/-1/-1->3->2 [8] -1/-1/-1->3->2 [9] -1/-1/-1->3->2 [10] -1/-1/-1->3->2 [11] -1/-1/-1->3->2 [12] -1/-1/-1->3->2 [13] -1/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] -1/-1/-1->3->2 [16] -1/-1/-1->3->2 [17] -1/-1/-1->3->2 [18] -1/-1/-1->3->2 [19] -1/-1/-1->3->2 [20] -1/-1/-1->3->2 [21] -1/-1/-1->3->2 [22] -1/-1/-1->3->2 [23] -1/-1/-1->3->2 [24] -1/-1/-1->3->2 [25] -1/-1/-1->3->2 [26] -1/-1/-1->3->2 [27] -1/-1/-1->3->2 [28] -1/-1/-1->3->2 [29] -1/-1/-1->3->2 [30] -1/-1/-1->3->2 [31] -1/-1/-1->3->2 [32] 1/-1/-1->3->-1 [33] 1/-1/-1->3->-1 [34] 1/-1/-1->3->-1 [35] 1/-1/-1->3->-1 [36] 1/-1/-1->3->-1 [37] 1/-1/-1->3->-1 [38] 1/-1/-1->3->-1 [39] 1/-1/-1->3->-1 [40] 1/-1/-1->3->-1 [41] 1/-1/-1->3->-1 [42] 1/-1/-1->3->-1 [43] 1/-1/-1->3->-1 [44] 1/-1/-1->3->-1 [45] 1/-1/-1->3->-1 [46] 1/-1/-1->3->-1 [47] 1/-1/-1->3->-1 [48] 1/-1/-1->3->-1 [49] 1/-1/-1->3->-1 [50] 1/-1/-1->3->-1 [51] 1/-1/-
+gx10-3c91:420:420 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-3c91:420:420 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+gx10-3c91:420:420 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-3c91:420:420 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-3c91:420:420 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-6b41:640:640 [0] NCCL INFO comm 0xbfc43ea70a80 rank 2 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+gx10-6b41:640:640 [0] NCCL INFO Trees [0] 1/3/-1->2->0 [1] 1/3/-1->2->0 [2] 1/3/-1->2->0 [3] 1/3/-1->2->0 [4] 1/3/-1->2->0 [5] 1/3/-1->2->0 [6] 1/3/-1->2->0 [7] 1/3/-1->2->0 [8] 1/3/-1->2->0 [9] 1/3/-1->2->0 [10] 1/3/-1->2->0 [11] 1/3/-1->2->0 [12] 1/3/-1->2->0 [13] 1/3/-1->2->0 [14] 1/3/-1->2->0 [15] 1/3/-1->2->0 [16] 1/3/-1->2->0 [17] 1/3/-1->2->0 [18] 1/3/-1->2->0 [19] 1/3/-1->2->0 [20] 1/3/-1->2->0 [21] 1/3/-1->2->0 [22] 1/3/-1->2->0 [23] 1/3/-1->2->0 [24] 1/3/-1->2->0 [25] 1/3/-1->2->0 [26] 1/3/-1->2->0 [27] 1/3/-1->2->0 [28] 1/3/-1->2->0 [29] 1/3/-1->2->0 [30] 1/3/-1->2->0 [31] 1/3/-1->2->0 [32] -1/-1/-1->2->1 [33] -1/-1/-1->2->1 [34] -1/-1/-1->2->1 [35] -1/-1/-1->2->1 [36] -1/-1/-1->2->1 [37] -1/-1/-1->2->1 [38] -1/-1/-1->2->1 [39] -1/-1/-1->2->1 [40] -1/-1/-1->2->1 [41] -1/-1/-1->2->1 [42] -1/-1/-1->2->1 [43] -1/-1/-1->2->1 [44] -1/-1/-1->2->1 [45] -1/-1/-1->2->1 [46] -1/-1/-1->2->1 [47] -1/-1/-1->2->1 [48] -1/-1/-1->2->1 [49] -1/-1/-1->2->1 [50] -1/-1/-1->2->1 [51] -1/-1/-1->2->1 [52] -1/-1/-1->2->1 [53] -1/-1/-1->2->1 [54] -1/-1/-1->
+gx10-6b41:640:640 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-6b41:640:640 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+gx10-6b41:640:640 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-6b41:640:640 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-6b41:640:640 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-6b41:640:648 [0] NCCL INFO [Proxy Service] Device 0 CPU core 11
+gx10-6b41:640:648 [0] NCCL INFO proxy listening socket at 192.168.1.66<59125>
+gx10-3c91:420:428 [0] NCCL INFO [Proxy Service] Device 0 CPU core 18
+gx10-3c91:420:428 [0] NCCL INFO proxy listening socket at 192.168.1.76<38855>
+gx10-3c91:420:429 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 1
+gx10-6b41:640:649 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 14
+gx10-e146:864:864 [0] NCCL INFO comm 0xb1cf1046c430 rank 1 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+gx10-e146:864:864 [0] NCCL INFO Trees [0] -1/-1/-1->1->2 [1] -1/-1/-1->1->2 [2] -1/-1/-1->1->2 [3] -1/-1/-1->1->2 [4] -1/-1/-1->1->2 [5] -1/-1/-1->1->2 [6] -1/-1/-1->1->2 [7] -1/-1/-1->1->2 [8] -1/-1/-1->1->2 [9] -1/-1/-1->1->2 [10] -1/-1/-1->1->2 [11] -1/-1/-1->1->2 [12] -1/-1/-1->1->2 [13] -1/-1/-1->1->2 [14] -1/-1/-1->1->2 [15] -1/-1/-1->1->2 [16] -1/-1/-1->1->2 [17] -1/-1/-1->1->2 [18] -1/-1/-1->1->2 [19] -1/-1/-1->1->2 [20] -1/-1/-1->1->2 [21] -1/-1/-1->1->2 [22] -1/-1/-1->1->2 [23] -1/-1/-1->1->2 [24] -1/-1/-1->1->2 [25] -1/-1/-1->1->2 [26] -1/-1/-1->1->2 [27] -1/-1/-1->1->2 [28] -1/-1/-1->1->2 [29] -1/-1/-1->1->2 [30] -1/-1/-1->1->2 [31] -1/-1/-1->1->2 [32] 2/0/-1->1->3 [33] 2/0/-1->1->3 [34] 2/0/-1->1->3 [35] 2/0/-1->1->3 [36] 2/0/-1->1->3 [37] 2/0/-1->1->3 [38] 2/0/-1->1->3 [39] 2/0/-1->1->3 [40] 2/0/-1->1->3 [41] 2/0/-1->1->3 [42] 2/0/-1->1->3 [43] 2/0/-1->1->3 [44] 2/0/-1->1->3 [45] 2/0/-1->1->3 [46] 2/0/-1->1->3 [47] 2/0/-1->1->3 [48] 2/0/-1->1->3 [49] 2/0/-1->1->3 [50] 2/0/-1->1->3 [51] 2/0/-1->1->3 [52] 2/0/-1->1->3 [53] 2/0/-1->
+gx10-e146:864:864 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-e146:864:864 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+gx10-e146:864:864 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-e146:864:864 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-e146:864:864 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-e146:864:872 [0] NCCL INFO [Proxy Service] Device 0 CPU core 2
+gx10-e146:864:872 [0] NCCL INFO proxy listening socket at 192.168.1.6<60079>
+gx10-e146:864:873 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 7
+gx10-3c91:420:420 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+gx10-3c91:420:420 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+gx10-3c91:420:420 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+gx10-3c91:420:420 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+gx10-3c91:420:420 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-3c91:420:420 [0] NCCL INFO ncclCommInitRankConfig comm 0xc7dd5fb86a70 rank 3 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init COMPLETE
+gx10-3c91:420:420 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 3 nranks 4 total 0.28 (kernels 0.14, alloc 0.04, bootstrap 0.06, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+spark-5fa1:1792:1792 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+spark-5fa1:1792:1792 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+spark-5fa1:1792:1792 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+spark-5fa1:1792:1792 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+spark-5fa1:1792:1792 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+spark-5fa1:1792:1792 [0] NCCL INFO CC Off, workFifoBytes 1048576
+spark-5fa1:1792:1792 [0] NCCL INFO ncclCommInitRankConfig comm 0xc4f0227c39d0 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init COMPLETE
+spark-5fa1:1792:1792 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 0 nranks 4 total 0.28 (kernels 0.18, alloc 0.03, bootstrap 0.04, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+gx10-e146:864:864 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+gx10-e146:864:864 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+gx10-e146:864:864 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+gx10-e146:864:864 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+gx10-e146:864:864 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-e146:864:864 [0] NCCL INFO ncclCommInitRankConfig comm 0xb1cf1046c430 rank 1 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init COMPLETE
+gx10-e146:864:864 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 1 nranks 4 total 0.28 (kernels 0.15, alloc 0.06, bootstrap 0.03, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+#
+#                                                              out-of-place                       in-place          
+#       size         count      type   redop    root     time   algbw   busbw  #wrong     time   algbw   busbw  #wrong 
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)             (us)  (GB/s)  (GB/s)         
+gx10-6b41:640:640 [0] NCCL INFO ncclOsDlopen(libnccl-tuner.so) failed: libnccl-tuner.so: cannot open shared object file: No such file or directory
+gx10-6b41:640:640 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so
+gx10-6b41:640:640 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+gx10-6b41:640:640 [0] NCCL INFO 64 coll channels, 64 collnet channels, 0 nvls channels, 64 p2p channels, 1 p2p channels per peer
+gx10-6b41:640:640 [0] NCCL INFO Symmetric memory is not supported. cuMemEnable 1, globalGinSupport 0, cuMemGdrSupport 0
+gx10-6b41:640:640 [0] NCCL INFO ncclCommInitRankConfig comm 0xbfc43ea70a80 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0xa9eb6223b590a5e0 - Init COMPLETE
+gx10-6b41:640:640 [0] NCCL INFO Init timings - ncclCommInitRankConfig: rank 2 nranks 4 total 0.28 (kernels 0.19, alloc 0.03, bootstrap 0.02, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+spark-5fa1:1792:1792 [0] NCCL INFO Symmetric VA size=124GB
+gx10-6b41:640:640 [0] NCCL INFO Symmetric VA size=124GB
+gx10-e146:864:864 [0] NCCL INFO Symmetric VA size=124GB
+gx10-3c91:420:420 [0] NCCL INFO Symmetric VA size=124GB
+gx10-3c91:420:430 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 1
+gx10-3c91:420:420 [0] NCCL INFO Channel 32/1 : 2[0] -> 3[0] [receive] via NET/IB/2/Shared
+gx10-3c91:420:420 [0] NCCL INFO Channel 32/1 : 3[0] -> 0[0] [send] via NET/IB/2/Shared
+gx10-e146:864:864 [0] NCCL INFO Channel 32/1 : 0[0] -> 1[0] [receive] via NET/IB/2/Shared
+gx10-e146:864:864 [0] NCCL INFO Channel 32/1 : 1[0] -> 2[0] [send] via NET/IB/2/Shared
+gx10-e146:864:874 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 2
+spark-5fa1:1792:1803 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 9
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 32/1 : 3[0] -> 0[0] [receive] via NET/IB/2/Shared
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 32/1 : 0[0] -> 1[0] [send] via NET/IB/2/Shared
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 48/1 : 2[0] -> 0[0] [receive] via NET/IB/2/Shared
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 48/1 : 0[0] -> 2[0] [send] via NET/IB/2/Shared
+gx10-6b41:640:640 [0] NCCL INFO Channel 32/1 : 1[0] -> 2[0] [receive] via NET/IB/2/Shared
+gx10-6b41:640:640 [0] NCCL INFO Channel 32/1 : 2[0] -> 3[0] [send] via NET/IB/2/Shared
+gx10-6b41:640:650 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 16
+gx10-e146:864:864 [0] NCCL INFO Channel 48/1 : 3[0] -> 1[0] [receive] via NET/IB/2/Shared
+gx10-e146:864:864 [0] NCCL INFO Channel 48/1 : 1[0] -> 3[0] [send] via NET/IB/2/Shared
+gx10-6b41:640:640 [0] NCCL INFO Channel 48/1 : 0[0] -> 2[0] [receive] via NET/IB/2/Shared
+gx10-6b41:640:640 [0] NCCL INFO Channel 48/1 : 2[0] -> 0[0] [send] via NET/IB/2/Shared
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 16/1 : 1[0] -> 0[0] [receive] via NET/IB/2/Shared
+spark-5fa1:1792:1792 [0] NCCL INFO Channel 16/1 : 0[0] -> 3[0] [send] via NET/IB/2/Shared
+gx10-6b41:640:640 [0] NCCL INFO Channel 16/1 : 3[0] -> 2[0] [receive] via NET/IB/2/Shared
+gx10-6b41:640:640 [0] NCCL INFO Channel 16/1 : 2[0] -> 1[0] [send] via NET/IB/2/Shared
+gx10-3c91:420:420 [0] NCCL INFO Channel 48/1 : 1[0] -> 3[0] [receive] via NET/IB/2/Shared
+gx10-3c91:420:420 [0] NCCL INFO Channel 48/1 : 3[0] -> 1[0] [send] via NET/IB/2/Shared
+gx10-e146:864:864 [0] NCCL INFO Channel 16/1 : 2[0] -> 1[0] [receive] via NET/IB/2/Shared
+gx10-e146:864:864 [0] NCCL INFO Channel 16/1 : 1[0] -> 0[0] [send] via NET/IB/2/Shared
+gx10-3c91:420:420 [0] NCCL INFO Channel 16/1 : 0[0] -> 3[0] [receive] via NET/IB/2/Shared
+gx10-3c91:420:420 [0] NCCL INFO Channel 16/1 : 3[0] -> 2[0] [send] via NET/IB/2/Shared
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe9cfcc00e000)
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xf2b41c00e000)
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xf2b41c052000)
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xf2b41c09a000)
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe9cfcc052000)
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe9cfcc09a000)
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe150bc00e000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe9b04c00e000)
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xf2b41c0de000)
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xf2b41c126000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe9b04c052000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe9b04c09a000)
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe150bc052000)
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe150bc09a000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe9b04c0de000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe9b04c126000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe9b04c16a000)
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=88998 pkey=0 pd=0xe9cfcc04ece0 oooRq=0
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=2930 pkey=0 pd=0xf2b41c04ee80 oooRq=0
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78137 pkey=0 pd=0xe150bc04ece0 oooRq=0
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=78733 pkey=0 pd=0xe9cfcc0dd210 oooRq=0
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 88998 mtu 5 GID 3 (0/2A4640AFFFF0000) ctsFifoRkey=0x167432 ctsFifoLkey=0x167432
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 88998 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 78733 mtu 5 GID 3 (0/2A2640AFFFF0000) ctsFifoRkey=0x19dfdb ctsFifoLkey=0x19dfdb
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 78733 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=5447 pkey=0 pd=0xf2b41c04ef60 oooRq=0
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe9cfcc156000)
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe9cfcc19e000)
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=71984 pkey=0 pd=0xe150bc0dd210 oooRq=0
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 78137 mtu 5 GID 3 (0/1A6640AFFFF0000) ctsFifoRkey=0x1717d7 ctsFifoLkey=0x1717d7
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 78137 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 71984 mtu 5 GID 3 (0/1A0640AFFFF0000) ctsFifoRkey=0x1b3330 ctsFifoLkey=0x1b3330
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 71984 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe150bc156000)
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 2930 mtu 5 GID 3 (0/2A0640AFFFF0000) ctsFifoRkey=0x17e19e ctsFifoLkey=0x17e19e
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 2930 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 5447 mtu 5 GID 3 (0/1A4640AFFFF0000) ctsFifoRkey=0x1a5c59 ctsFifoLkey=0x1a5c59
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 5447 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the send communicator (comm=0xe150bc19e000)
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=88999 pkey=0 pd=0xe9cfcc04ece0 oooRq=0
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=78734 pkey=0 pd=0xe9cfcc0dd210 oooRq=0
+gx10-e146:864:872 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=2931 pkey=0 pd=0xf2b41c04ee80 oooRq=0
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 88999 mtu 5 GID 3 (0/2A4640AFFFF0000) ctsFifoRkey=0x166925 ctsFifoLkey=0x166925
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 88999 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 78734 mtu 5 GID 3 (0/2A2640AFFFF0000) ctsFifoRkey=0x1a2321 ctsFifoLkey=0x1a2321
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 78734 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78138 pkey=0 pd=0xe150bc04ece0 oooRq=0
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbResiliencyInit: Resiliency is disabled on the recv communicator (comm=0xe9cfcc246000)
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbRecvCommInit: Receive work requests will be posted on-demand
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=607 pkey=0 pd=0xe9b04c04ef20 oooRq=0
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=1 devName=rocep1s0f1 ndevs=2 nmdevs=3 qp_num=855 pkey=0 pd=0xe9b04c0daec0 oooRq=0
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 0 Port 1 qp_num 607 mtu 5 GID 3 (0/1A2640AFFFF0000) ctsFifoRkey=0x16df95 ctsFifoLkey=0x16df95
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 0 Port 1 qp_num 607 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbConnectImpl: NCCL Dev 2 IbDev 1 Port 1 qp_num 855 mtu 5 GID 3 (0/2A6640AFFFF0000) ctsFifoRkey=0x192321 ctsFifoLkey=0x192321
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbConnectImpl: IbDev 1 Port 1 qp_num 855 query_ece={supported=1, vendor_id=0x15b3, options=0x30000002, comp_mask=0x0}
+spark-5fa1:1792:1801 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=89000 pkey=0 pd=0xe9cfcc04ece0 oooRq=0
+gx10-3c91:420:428 [0] NCCL INFO NET/IB: ncclIbReceiverQpsCreateToRts: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=608 pkey=0 pd=0xe9b04c04ef20 oooRq=0
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 1/35 after 100 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 1/35 after 100 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 1/35 after 100 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 1/35 after 100 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 2/35 after 200 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 2/35 after 200 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 2/35 after 200 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 2/35 after 200 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 3/35 after 300 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 3/35 after 300 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 3/35 after 300 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 3/35 after 300 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 4/35 after 400 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 4/35 after 400 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 4/35 after 400 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 4/35 after 400 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 5/35 after 500 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 5/35 after 500 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 5/35 after 500 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 5/35 after 500 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 6/35 after 600 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 6/35 after 600 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 6/35 after 600 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 6/35 after 600 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 7/35 after 700 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 7/35 after 700 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 7/35 after 700 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 7/35 after 700 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 8/35 after 800 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 8/35 after 800 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 8/35 after 800 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 8/35 after 800 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 9/35 after 900 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 9/35 after 900 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 9/35 after 900 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 9/35 after 900 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 10/35 after 1000 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 10/35 after 1000 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 10/35 after 1000 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 10/35 after 1000 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 11/35 after 1100 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 11/35 after 1100 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 11/35 after 1100 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 11/35 after 1100 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 12/35 after 1200 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 12/35 after 1200 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 12/35 after 1200 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 12/35 after 1200 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 13/35 after 1300 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 13/35 after 1300 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 13/35 after 1300 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 13/35 after 1300 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 14/35 after 1400 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 14/35 after 1400 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 14/35 after 1400 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 14/35 after 1400 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 15/35 after 1500 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 15/35 after 1500 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 15/35 after 1500 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 15/35 after 1500 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 16/35 after 1600 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 16/35 after 1600 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 16/35 after 1600 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 16/35 after 1600 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 17/35 after 1700 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 17/35 after 1700 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 17/35 after 1700 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 17/35 after 1700 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 18/35 after 1800 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 18/35 after 1800 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 18/35 after 1800 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 18/35 after 1800 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 19/35 after 1900 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 19/35 after 1900 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 19/35 after 1900 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 19/35 after 1900 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 20/35 after 2000 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 20/35 after 2000 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 20/35 after 2000 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 20/35 after 2000 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 21/35 after 2100 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 21/35 after 2100 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 21/35 after 2100 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 21/35 after 2100 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 22/35 after 2200 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 22/35 after 2200 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 22/35 after 2200 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 22/35 after 2200 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 23/35 after 2300 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 23/35 after 2300 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 23/35 after 2300 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 23/35 after 2300 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 24/35 after 2400 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 24/35 after 2400 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 24/35 after 2400 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 24/35 after 2400 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 25/35 after 2500 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 25/35 after 2500 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 25/35 after 2500 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 25/35 after 2500 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 26/35 after 2600 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 26/35 after 2600 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 26/35 after 2600 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 26/35 after 2600 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 27/35 after 2700 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 27/35 after 2700 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 27/35 after 2700 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 27/35 after 2700 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 28/35 after 2800 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 28/35 after 2800 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 28/35 after 2800 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 28/35 after 2800 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 29/35 after 2900 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 29/35 after 2900 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 29/35 after 2900 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 29/35 after 2900 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 30/35 after 3000 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 30/35 after 3000 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 30/35 after 3000 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 30/35 after 3000 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 31/35 after 3100 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 31/35 after 3100 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 31/35 after 3100 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 31/35 after 3100 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 32/35 after 3200 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 32/35 after 3200 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 32/35 after 3200 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 32/35 after 3200 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 33/35 after 3300 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 33/35 after 3300 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 33/35 after 3300 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 33/35 after 3300 msec of sleep
+spark-5fa1:1792:1801 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1, retrying 34/35 after 3400 msec of sleep
+gx10-e146:864:872 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2, retrying 34/35 after 3400 msec of sleep
+gx10-3c91:420:428 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1, retrying 34/35 after 3400 msec of sleep
+gx10-6b41:640:648 [0] NCCL INFO Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2, retrying 34/35 after 3400 msec of sleep
+
+[2026-10-10 02:45:29] spark-5fa1:1792:1801 [0] misc/ibvwrap.cc:376 (wrap_ibv_modify_qp) NCCL WARN Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.164.2, remote GID ::ffff:10.100.162.1
+spark-5fa1:1792:1801 [0] NCCL INFO HINT: In many cases this error occurs when NICs are not cross-rail connected.
+spark-5fa1:1792:1801 [0] NCCL INFO HINT: To confirm, you can set NCCL_CROSS_NIC=0 to disable cross-rail communication.
+spark-5fa1:1792:1801 [0] NCCL INFO HINT: See https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-cross-nic for more information.
+spark-5fa1:1792:1801 [0] NCCL INFO transport/net_ib/connect.cc:451 (ncclIbQpRtr) -> 2
+spark-5fa1:1792:1801 [0] NCCL INFO transport/net_ib/connect.cc:1256 (ncclIbReceiverQpsCreateToRts) -> 2
+spark-5fa1:1792:1801 [0] NCCL INFO transport/net_ib/connect.cc:1560 (ncclIbAcceptImpl) -> 2
+spark-5fa1:1792:1801 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 2
+spark-5fa1:1792:1792 [0] NCCL INFO transport/net.cc:572 (recvConnect) -> 2
+spark-5fa1:1792:1792 [0] NCCL INFO transport.cc:269 (ncclTransportP2pSetup) -> 2
+spark-5fa1:1792:1792 [0] NCCL INFO group.cc:143 (ncclP2PPreconnectFunc) -> 2
+spark-5fa1:1792:1792 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 2 [Async thread]
+spark-5fa1:1792:1792 [0] NCCL INFO group.cc:626 (groupLaunch) -> 2
+spark-5fa1:1792:1792 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 2
+spark-5fa1:1792:1792 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 2
+spark-5fa1: Test NCCL failure alltoall.cu:319 'unhandled system error (run with NCCL_DEBUG=INFO for details) / '
+ .. spark-5fa1 pid 1792: Test failure common.cu:597
+ .. spark-5fa1 pid 1792: Test failure common.cu:928
+ .. spark-5fa1 pid 1792: Test failure alltoall.cu:393
+ .. spark-5fa1 pid 1792: Test failure common.cu:972
+ .. spark-5fa1 pid 1792: Test failure common.cu:1768
+ .. spark-5fa1 pid 1792: Test failure common.cu:1454
+
+[2026-10-10 02:45:29] gx10-e146:864:872 [0] misc/ibvwrap.cc:376 (wrap_ibv_modify_qp) NCCL WARN Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.160.2, remote GID ::ffff:10.100.164.2
+gx10-e146:864:872 [0] NCCL INFO HINT: In many cases this error occurs when NICs are not cross-rail connected.
+gx10-e146:864:872 [0] NCCL INFO HINT: To confirm, you can set NCCL_CROSS_NIC=0 to disable cross-rail communication.
+gx10-e146:864:872 [0] NCCL INFO HINT: See https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-cross-nic for more information.
+gx10-e146:864:872 [0] NCCL INFO transport/net_ib/connect.cc:451 (ncclIbQpRtr) -> 2
+gx10-e146:864:872 [0] NCCL INFO transport/net_ib/connect.cc:1256 (ncclIbReceiverQpsCreateToRts) -> 2
+gx10-e146:864:872 [0] NCCL INFO transport/net_ib/connect.cc:1560 (ncclIbAcceptImpl) -> 2
+gx10-e146:864:872 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 2
+gx10-e146:864:864 [0] NCCL INFO transport/net.cc:572 (recvConnect) -> 2
+gx10-e146:864:864 [0] NCCL INFO transport.cc:269 (ncclTransportP2pSetup) -> 2
+gx10-e146:864:864 [0] NCCL INFO group.cc:143 (ncclP2PPreconnectFunc) -> 2
+gx10-e146:864:864 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 2 [Async thread]
+gx10-e146:864:864 [0] NCCL INFO group.cc:626 (groupLaunch) -> 2
+gx10-e146:864:864 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 2
+gx10-e146:864:864 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 2
+gx10-e146: Test NCCL failure alltoall.cu:319 'unhandled system error (run with NCCL_DEBUG=INFO for details) / '
+ .. gx10-e146 pid 864: Test failure common.cu:597
+ .. gx10-e146 pid 864: Test failure common.cu:928
+ .. gx10-e146 pid 864: Test failure alltoall.cu:393
+ .. gx10-e146 pid 864: Test failure common.cu:972
+ .. gx10-e146 pid 864: Test failure common.cu:1768
+ .. gx10-e146 pid 864: Test failure common.cu:1454
+
+[2026-10-10 02:45:29] gx10-3c91:420:428 [0] misc/ibvwrap.cc:376 (wrap_ibv_modify_qp) NCCL WARN Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.162.1, remote GID ::ffff:10.100.166.1
+gx10-3c91:420:428 [0] NCCL INFO HINT: In many cases this error occurs when NICs are not cross-rail connected.
+gx10-3c91:420:428 [0] NCCL INFO HINT: To confirm, you can set NCCL_CROSS_NIC=0 to disable cross-rail communication.
+gx10-3c91:420:428 [0] NCCL INFO HINT: See https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-cross-nic for more information.
+gx10-3c91:420:428 [0] NCCL INFO transport/net_ib/connect.cc:451 (ncclIbQpRtr) -> 2
+gx10-3c91:420:428 [0] NCCL INFO transport/net_ib/connect.cc:1256 (ncclIbReceiverQpsCreateToRts) -> 2
+gx10-3c91:420:428 [0] NCCL INFO transport/net_ib/connect.cc:1560 (ncclIbAcceptImpl) -> 2
+gx10-3c91:420:428 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 2
+gx10-3c91:420:420 [0] NCCL INFO transport/net.cc:572 (recvConnect) -> 2
+gx10-3c91:420:420 [0] NCCL INFO transport.cc:269 (ncclTransportP2pSetup) -> 2
+gx10-3c91:420:420 [0] NCCL INFO group.cc:143 (ncclP2PPreconnectFunc) -> 2
+gx10-3c91:420:420 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 2 [Async thread]
+gx10-3c91:420:420 [0] NCCL INFO group.cc:626 (groupLaunch) -> 2
+gx10-3c91:420:420 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 2
+gx10-3c91:420:420 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 2
+gx10-3c91: Test NCCL failure alltoall.cu:319 'unhandled system error (run with NCCL_DEBUG=INFO for details) / '
+ .. gx10-3c91 pid 420: Test failure common.cu:597
+ .. gx10-3c91 pid 420: Test failure common.cu:928
+ .. gx10-3c91 pid 420: Test failure alltoall.cu:393
+ .. gx10-3c91 pid 420: Test failure common.cu:972
+ .. gx10-3c91 pid 420: Test failure common.cu:1768
+ .. gx10-3c91 pid 420: Test failure common.cu:1454
+
+[2026-10-10 02:45:29] gx10-6b41:640:648 [0] misc/ibvwrap.cc:376 (wrap_ibv_modify_qp) NCCL WARN Call to ibv_modify_qp failed with 110 Connection timed out, on dev rocep1s0f0:1, curr state INIT, next state RTR, local GID index 3, local GID ::ffff:10.100.166.1, remote GID ::ffff:10.100.160.2
+gx10-6b41:640:648 [0] NCCL INFO HINT: In many cases this error occurs when NICs are not cross-rail connected.
+gx10-6b41:640:648 [0] NCCL INFO HINT: To confirm, you can set NCCL_CROSS_NIC=0 to disable cross-rail communication.
+gx10-6b41:640:648 [0] NCCL INFO HINT: See https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html#nccl-cross-nic for more information.
+gx10-6b41:640:648 [0] NCCL INFO transport/net_ib/connect.cc:451 (ncclIbQpRtr) -> 2
+gx10-6b41:640:648 [0] NCCL INFO transport/net_ib/connect.cc:1256 (ncclIbReceiverQpsCreateToRts) -> 2
+gx10-6b41:640:648 [0] NCCL INFO transport/net_ib/connect.cc:1560 (ncclIbAcceptImpl) -> 2
+gx10-6b41:640:648 [0] NCCL INFO transport/net.cc:1075 (recvProxyConnect) -> 2
+gx10-6b41:640:640 [0] NCCL INFO transport/net.cc:572 (recvConnect) -> 2
+gx10-6b41:640:640 [0] NCCL INFO transport.cc:269 (ncclTransportP2pSetup) -> 2
+gx10-6b41:640:640 [0] NCCL INFO group.cc:143 (ncclP2PPreconnectFunc) -> 2
+gx10-6b41:640:640 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 2 [Async thread]
+gx10-6b41:640:640 [0] NCCL INFO group.cc:626 (groupLaunch) -> 2
+gx10-6b41:640:640 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 2
+gx10-6b41:640:640 [0] NCCL INFO enqueue.cc:3164 (ncclEnqueueCheck) -> 2
+gx10-6b41: Test NCCL failure alltoall.cu:319 'unhandled system error (run with NCCL_DEBUG=INFO for details) / '
+ .. gx10-6b41 pid 640: Test failure common.cu:597
+ .. gx10-6b41 pid 640: Test failure common.cu:928
+ .. gx10-6b41 pid 640: Test failure alltoall.cu:393
+ .. gx10-6b41 pid 640: Test failure common.cu:972
+ .. gx10-6b41 pid 640: Test failure common.cu:1768
+ .. gx10-6b41 pid 640: Test failure common.cu:1454
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78139 pkey=0 pd=0xe150bc04ece0 oooRq=0
+gx10-6b41:640:648 [0] NCCL INFO NET/IB: ncclIbSenderQpsCreate: QP created: port=1 dev=0 devName=rocep1s0f0 ndevs=2 nmdevs=3 qp_num=78139 pkey=0 pd=0xe150bc04ece0 oooRq=0
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56173,1],3]
+  Exit code:    3
+--------------------------------------------------------------------------
+# exit=3

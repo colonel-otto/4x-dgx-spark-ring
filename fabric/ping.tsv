@@ -1,0 +1,8 @@
+E1r1	rtt min/avg/max/mdev = 0.213/0.906/1.204/0.237 ms	rtt min/avg/max/mdev = 0.451/0.873/1.254/0.226 ms
+E1r2	rtt min/avg/max/mdev = 0.106/1.041/1.455/0.358 ms	rtt min/avg/max/mdev = 0.381/1.310/1.686/0.253 ms
+E2r1	rtt min/avg/max/mdev = 0.994/1.384/1.469/0.101 ms	rtt min/avg/max/mdev = 0.447/1.163/1.490/0.233 ms
+E2r2	rtt min/avg/max/mdev = 0.304/0.756/1.084/0.188 ms	rtt min/avg/max/mdev = 0.201/0.779/1.499/0.239 ms
+E3r1	rtt min/avg/max/mdev = 0.167/0.747/1.074/0.188 ms	rtt min/avg/max/mdev = 0.592/0.918/1.218/0.114 ms
+E3r2	rtt min/avg/max/mdev = 0.568/1.076/1.388/0.170 ms	rtt min/avg/max/mdev = 0.292/0.837/1.257/0.293 ms
+E4r1	rtt min/avg/max/mdev = 0.168/0.915/1.338/0.271 ms	rtt min/avg/max/mdev = 0.177/0.901/1.506/0.418 ms
+E4r2	rtt min/avg/max/mdev = 0.079/0.683/1.463/0.272 ms	rtt min/avg/max/mdev = 0.184/0.806/1.536/0.231 ms

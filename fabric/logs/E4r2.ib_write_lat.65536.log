@@ -1,0 +1,23 @@
+---------------------------------------------------------------------------------------
+                    RDMA_Write Latency Test
+ Dual-port       : OFF		Device         : roceP2p1s0f0
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: OFF
+ ibv_wr* API     : ON
+ TX depth        : 1
+ Mtu             : 4096[B]
+ Link type       : Ethernet
+ GID index       : 3
+ Max inline data : 220[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x01ad PSN 0x1df04d RKey 0x19aaa8 VAddr 0x00eb98ccfdd000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:100:163:01
+ remote address: LID 0000 QPN 0x9bd9 PSN 0x29c45f RKey 0x1d4949 VAddr 0x00e1c8a6884000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:100:163:02
+---------------------------------------------------------------------------------------
+ #bytes #iterations    t_min[usec]    t_max[usec]  t_typical[usec]    t_avg[usec]    t_stdev[usec]   99% percentile[usec]   99.9% percentile[usec] 
+ 65536   10000          8.15           10.34        8.71     	       8.74        	0.01   		9.28    		9.55   
+---------------------------------------------------------------------------------------
