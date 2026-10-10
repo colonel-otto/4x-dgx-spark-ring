@@ -1,0 +1,3 @@
+# build outputs and oversized logs stay local
+dsv4-0731/nccl-gate/nt24/
+dsv4-0731/nccl-gate/logs/np4.rail1*.alltoall.log

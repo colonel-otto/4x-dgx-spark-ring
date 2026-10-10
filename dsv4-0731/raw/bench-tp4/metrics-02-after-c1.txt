@@ -1,0 +1,15 @@
+vllm:spec_decode_num_drafts_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated"} 2063.0
+vllm:spec_decode_num_draft_tokens_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated"} 10315.0
+vllm:spec_decode_num_accepted_tokens_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated"} 7369.0
+vllm:spec_decode_num_accepted_tokens_per_pos_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated",position="0"} 1972.0
+vllm:spec_decode_num_accepted_tokens_per_pos_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated",position="1"} 1697.0
+vllm:spec_decode_num_accepted_tokens_per_pos_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated",position="2"} 1638.0
+vllm:spec_decode_num_accepted_tokens_per_pos_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated",position="3"} 1051.0
+vllm:spec_decode_num_accepted_tokens_per_pos_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated",position="4"} 1011.0
+vllm:prompt_tokens_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated"} 17987.0
+vllm:generation_tokens_total{engine="0",model_name="deepseek-v4-flash-dspark-abliterated"} 9332.0
+vllm:request_success_total{engine="0",finished_reason="stop",model_name="deepseek-v4-flash-dspark-abliterated"} 2.0
+vllm:request_success_total{engine="0",finished_reason="length",model_name="deepseek-v4-flash-dspark-abliterated"} 63.0
+vllm:request_success_total{engine="0",finished_reason="abort",model_name="deepseek-v4-flash-dspark-abliterated"} 0.0
+vllm:request_success_total{engine="0",finished_reason="error",model_name="deepseek-v4-flash-dspark-abliterated"} 0.0
+vllm:request_success_total{engine="0",finished_reason="repetition",model_name="deepseek-v4-flash-dspark-abliterated"} 0.0

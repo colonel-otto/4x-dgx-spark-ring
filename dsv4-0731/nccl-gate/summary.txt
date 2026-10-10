@@ -1,0 +1,4 @@
+logs/np4.rail1.all_reduce.log min=8B oop=49.79 ip=43.76 lat64K=77.63 peak=13.71@67108864 wrong=0
+logs/np4.rail1.all_gather.log min=64B oop=51.80 ip=45.43 lat64K=48.82 peak=13.57@268435456 wrong=0
+logs/np4.rail2.all_reduce.log min=8B oop=46.74 ip=37.59 lat64K=108.16 peak=13.05@16777216 wrong=0
+logs/np4.rail2.all_gather.log min=64B oop=47.41 ip=47.96 lat64K=58.85 peak=12.80@4294967296 wrong=0

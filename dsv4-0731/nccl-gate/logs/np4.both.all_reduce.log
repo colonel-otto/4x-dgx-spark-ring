@@ -1,0 +1,374 @@
+# docker exec ntest4_node mpirun --allow-run-as-root --mca btl_tcp_if_include enP7s7 --mca oob_tcp_if_include enP7s7 -np 1 -host 192.168.1.70:1 -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1 -x LD_LIBRARY_PATH=/opt/patched-nccl:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x LD_PRELOAD=/opt/patched-nccl/libnccl.so.2 -x NCCL_SKIP_TREE_CONNECT=1 -x NCCL_SWITCHLESS_RING_ONLY=1  -x NCCL_SOCKET_IFNAME=enP7s7 -x NCCL_NET=IB -x NCCL_IB_DISABLE=0 -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_SUBNET_PREFIX_LEN=24  -x NCCL_IB_SUBNET_AWARE_ROUTING=1 -x NCCL_IB_MERGE_NICS=0 -x NCCL_ALGO=Ring -x NCCL_PROTO=LL,LL128,Simple -x NCCL_P2P_LEVEL=SYS  -x NCCL_MIN_NCHANNELS=4 -x NCCL_MAX_NCHANNELS=4 -x NCCL_CROSS_NIC=1 -x NCCL_CUMEM_ENABLE=0 -x NCCL_IGNORE_CPU_AFFINITY=1  -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET  /ntb/all_reduce_perf -b 8 -e 64M -f 2 -g 1 -c 1 : -np 1 -host 192.168.1.6:1 -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1 -x LD_LIBRARY_PATH=/opt/patched-nccl:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x LD_PRELOAD=/opt/patched-nccl/libnccl.so.2 -x NCCL_SKIP_TREE_CONNECT=1 -x NCCL_SWITCHLESS_RING_ONLY=1  -x NCCL_SOCKET_IFNAME=enP7s7 -x NCCL_NET=IB -x NCCL_IB_DISABLE=0 -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_SUBNET_PREFIX_LEN=24  -x NCCL_IB_SUBNET_AWARE_ROUTING=1 -x NCCL_IB_MERGE_NICS=0 -x NCCL_ALGO=Ring -x NCCL_PROTO=LL,LL128,Simple -x NCCL_P2P_LEVEL=SYS  -x NCCL_MIN_NCHANNELS=4 -x NCCL_MAX_NCHANNELS=4 -x NCCL_CROSS_NIC=1 -x NCCL_CUMEM_ENABLE=0 -x NCCL_IGNORE_CPU_AFFINITY=1  -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET  /ntb/all_reduce_perf -b 8 -e 64M -f 2 -g 1 -c 1 : -np 1 -host 192.168.1.66:1 -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1 -x LD_LIBRARY_PATH=/opt/patched-nccl:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x LD_PRELOAD=/opt/patched-nccl/libnccl.so.2 -x NCCL_SKIP_TREE_CONNECT=1 -x NCCL_SWITCHLESS_RING_ONLY=1  -x NCCL_SOCKET_IFNAME=enP7s7 -x NCCL_NET=IB -x NCCL_IB_DISABLE=0 -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_SUBNET_PREFIX_LEN=24  -x NCCL_IB_SUBNET_AWARE_ROUTING=1 -x NCCL_IB_MERGE_NICS=0 -x NCCL_ALGO=Ring -x NCCL_PROTO=LL,LL128,Simple -x NCCL_P2P_LEVEL=SYS  -x NCCL_MIN_NCHANNELS=4 -x NCCL_MAX_NCHANNELS=4 -x NCCL_CROSS_NIC=1 -x NCCL_CUMEM_ENABLE=0 -x NCCL_IGNORE_CPU_AFFINITY=1  -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET  /ntb/all_reduce_perf -b 8 -e 64M -f 2 -g 1 -c 1 : -np 1 -host 192.168.1.76:1 -x NCCL_IB_HCA==rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1 -x LD_LIBRARY_PATH=/opt/patched-nccl:/usr/local/cuda/lib64:/usr/lib/aarch64-linux-gnu/openmpi/lib -x LD_PRELOAD=/opt/patched-nccl/libnccl.so.2 -x NCCL_SKIP_TREE_CONNECT=1 -x NCCL_SWITCHLESS_RING_ONLY=1  -x NCCL_SOCKET_IFNAME=enP7s7 -x NCCL_NET=IB -x NCCL_IB_DISABLE=0 -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_SUBNET_PREFIX_LEN=24  -x NCCL_IB_SUBNET_AWARE_ROUTING=1 -x NCCL_IB_MERGE_NICS=0 -x NCCL_ALGO=Ring -x NCCL_PROTO=LL,LL128,Simple -x NCCL_P2P_LEVEL=SYS  -x NCCL_MIN_NCHANNELS=4 -x NCCL_MAX_NCHANNELS=4 -x NCCL_CROSS_NIC=1 -x NCCL_CUMEM_ENABLE=0 -x NCCL_IGNORE_CPU_AFFINITY=1  -x NCCL_DEBUG=INFO -x NCCL_DEBUG_SUBSYS=INIT,NET  /ntb/all_reduce_perf -b 8 -e 64M -f 2 -g 1 -c 1
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+# nccl-tests version 2.19.7 nccl-headers=23007 nccl-library=23007
+# Collective test starting: all_reduce_perf
+# nThread 1 nGpus 1 minBytes 8 maxBytes 67108864 step: 2(factor) warmup iters: 1 iters: 20 agg iters: 1 validation: 1 graph: 0 unalign: 0
+#
+# Using devices
+#  Rank  0 Group  0 Pid    164 on spark-5fa1 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  1 Group  0 Pid    172 on  gx10-e146 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  2 Group  0 Pid    173 on  gx10-6b41 device  0 [000f:01:00] NVIDIA GB10
+#  Rank  3 Group  0 Pid    178 on  gx10-3c91 device  0 [000f:01:00] NVIDIA GB10
+spark-5fa1:164:164 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+spark-5fa1:164:164 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+spark-5fa1:164:164 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+spark-5fa1:164:164 [0] NCCL INFO cudaDriverVersion 13000
+spark-5fa1:164:164 [0] NCCL INFO NCCL version 2.30.7+cuda13.0
+spark-5fa1:164:164 [0] NCCL INFO NCCL git version unknown unknown
+gx10-3c91:178:178 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-3c91:178:178 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-3c91:178:178 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:172:172 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-e146:172:172 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-e146:172:172 [0] NCCL INFO cudaDriverVersion 13000
+gx10-e146:172:172 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-3c91:178:178 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-3c91:178:178 [0] NCCL INFO NCCL version 2.30.7+cuda13.0
+gx10-3c91:178:178 [0] NCCL INFO NCCL git version unknown unknown
+gx10-6b41:173:173 [0] NCCL INFO ncclOsDlopen(libnccl-env.so) failed: libnccl-env.so: cannot open shared object file: No such file or directory
+gx10-6b41:173:173 [0] NCCL INFO ENV/Plugin: Could not find: libnccl-env.so
+gx10-6b41:173:173 [0] NCCL INFO cudaDriverVersion 13000
+gx10-6b41:173:173 [0] NCCL INFO NCCL_SOCKET_IFNAME set to enP7s7
+gx10-e146:172:172 [0] NCCL INFO NCCL version 2.30.7+cuda13.0
+gx10-e146:172:172 [0] NCCL INFO NCCL git version unknown unknown
+gx10-6b41:173:173 [0] NCCL INFO NCCL version 2.30.7+cuda13.0
+gx10-6b41:173:173 [0] NCCL INFO NCCL git version unknown unknown
+gx10-3c91:178:178 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-3c91:178:178 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-3c91:178:178 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-3c91:178:178 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-3c91:178:178 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1
+spark-5fa1:164:164 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+spark-5fa1:164:164 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-e146:172:172 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-e146:172:172 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+spark-5fa1:164:164 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:164:164 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+spark-5fa1:164:164 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1
+gx10-e146:172:172 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-e146:172:172 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-e146:172:172 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1
+gx10-3c91:178:178 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xb50e6832ec50 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:172:172 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xba3fb6308340 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:164:164 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xbd9f62678ee0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-3c91:178:178 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xb50e68370350 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:172:172 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xba3fb6349a40 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:164:164 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xbd9f626ba5e0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-e146:172:172 [0] NCCL INFO NET/IB: [2] roceP2p1s0f0:uverbs2:1/RoCE provider=Mlx5 speed=200000 context=0xba3fb638b140 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+gx10-3c91:178:178 [0] NCCL INFO NET/IB: [2] roceP2p1s0f0:uverbs2:1/RoCE provider=Mlx5 speed=200000 context=0xb50e683b1a50 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:164:164 [0] NCCL INFO NET/IB: [2] roceP2p1s0f0:uverbs2:1/RoCE provider=Mlx5 speed=200000 context=0xbd9f626fbce0 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+gx10-e146:172:172 [0] NCCL INFO NET/IB: [3] roceP2p1s0f1:uverbs3:1/RoCE provider=Mlx5 speed=200000 context=0xba3fb63cc840 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Made virtual device [2] name=roceP2p1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Made virtual device [3] name=roceP2p1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [2]roceP2p1s0f0:1/RoCE [3]roceP2p1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.6<0>
+gx10-e146:172:172 [0] NCCL INFO Initialized NET plugin IB
+spark-5fa1:164:164 [0] NCCL INFO NET/IB: [3] roceP2p1s0f1:uverbs3:1/RoCE provider=Mlx5 speed=200000 context=0xbd9f6273d3e0 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Made virtual device [2] name=roceP2p1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Made virtual device [3] name=roceP2p1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [2]roceP2p1s0f0:1/RoCE [3]roceP2p1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.70<0>
+spark-5fa1:164:164 [0] NCCL INFO Initialized NET plugin IB
+gx10-e146:172:172 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-e146:172:172 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-e146:172:172 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-e146:172:172 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-e146:172:172 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-e146:172:172 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-e146:172:172 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-e146:172:172 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-e146:172:172 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-e146:172:172 [0] NCCL INFO Using network IB
+gx10-e146:172:172 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+spark-5fa1:164:164 [0] NCCL INFO Assigned NET plugin IB to comm
+spark-5fa1:164:164 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+spark-5fa1:164:164 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+spark-5fa1:164:164 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+spark-5fa1:164:164 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+spark-5fa1:164:164 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+spark-5fa1:164:164 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+spark-5fa1:164:164 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+spark-5fa1:164:164 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+spark-5fa1:164:164 [0] NCCL INFO Using network IB
+gx10-3c91:178:178 [0] NCCL INFO NET/IB: [3] roceP2p1s0f1:uverbs3:1/RoCE provider=Mlx5 speed=200000 context=0xb50e683f3150 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Made virtual device [2] name=roceP2p1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Made virtual device [3] name=roceP2p1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [2]roceP2p1s0f0:1/RoCE [3]roceP2p1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.76<0>
+gx10-3c91:178:178 [0] NCCL INFO Initialized NET plugin IB
+spark-5fa1:164:164 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-3c91:178:178 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-6b41:173:173 [0] NCCL INFO ncclOsDlopen(libnccl-net.so) failed: libnccl-net.so: cannot open shared object file: No such file or directory
+gx10-6b41:173:173 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so
+gx10-6b41:173:173 [0] NCCL INFO dlvsym failed on mlx5dv_get_data_direct_sysfs_path - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_get_data_direct_sysfs_path, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:173:173 [0] NCCL INFO dlvsym failed on mlx5dv_reg_dmabuf_mr - /lib/aarch64-linux-gnu/libmlx5.so: undefined symbol: mlx5dv_reg_dmabuf_mr, version MLX5_1.25 version MLX5_1.25
+gx10-6b41:173:173 [0] NCCL INFO NCCL_IB_HCA set to =rocep1s0f0,rocep1s0f1,roceP2p1s0f0,roceP2p1s0f1
+gx10-3c91:178:178 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-3c91:178:178 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-3c91:178:178 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-3c91:178:178 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-3c91:178:178 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-3c91:178:178 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-3c91:178:178 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-3c91:178:178 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-3c91:178:178 [0] NCCL INFO Using network IB
+gx10-3c91:178:178 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-6b41:173:173 [0] NCCL INFO NET/IB: [0] rocep1s0f0:uverbs0:1/RoCE provider=Mlx5 speed=200000 context=0xbedf352d96d0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:173:173 [0] NCCL INFO NET/IB: [1] rocep1s0f1:uverbs1:1/RoCE provider=Mlx5 speed=200000 context=0xbedf3531add0 pciPath=/sys/devices/pci0000:00/0000:00:00.0/0000:01:00.0 ar=0 oooRqSize=0
+gx10-3c91:178:178 [0] NCCL INFO [Rank 3] ncclCommInitRankConfig comm 0xb50e65d3d230 rank 3 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0x3e205b94a3d179c - Init START
+spark-5fa1:164:164 [0] NCCL INFO [Rank 0] ncclCommInitRankConfig comm 0xbd9f60093880 rank 0 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0x3e205b94a3d179c - Init START
+gx10-6b41:173:173 [0] NCCL INFO NET/IB: [2] roceP2p1s0f0:uverbs2:1/RoCE provider=Mlx5 speed=200000 context=0xbedf3535c4d0 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:173:173 [0] NCCL INFO NET/IB: [3] roceP2p1s0f1:uverbs3:1/RoCE provider=Mlx5 speed=200000 context=0xbedf3539dbd0 pciPath=/sys/devices/pci0002:00/0002:00:00.0/0002:01:00.0 ar=0 oooRqSize=0
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Made virtual device [0] name=rocep1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Made virtual device [1] name=rocep1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Made virtual device [2] name=roceP2p1s0f0 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Made virtual device [3] name=roceP2p1s0f1 speed=200000 ndevs=1 rail=-1 plane=-1
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Using [0]rocep1s0f0:1/RoCE [1]rocep1s0f1:1/RoCE [2]roceP2p1s0f0:1/RoCE [3]roceP2p1s0f1:1/RoCE [RO]; OOB enP7s7:192.168.1.66<0>
+gx10-6b41:173:173 [0] NCCL INFO Initialized NET plugin IB
+gx10-6b41:173:173 [0] NCCL INFO Assigned NET plugin IB to comm
+gx10-6b41:173:173 [0] NCCL INFO ncclOsDlopen(libnccl-rma.so) failed: libnccl-rma.so: cannot open shared object file: No such file or directory
+gx10-6b41:173:173 [0] NCCL INFO RMA/Plugin: Could not find: libnccl-rma.so
+gx10-6b41:173:173 [0] NCCL INFO RMA/Plugin: Failed to load external plugin libnccl-rma.so, dlHandle: (nil), ncclRma: (nil)
+gx10-6b41:173:173 [0] NCCL INFO RMA/Plugin: Assigned plugin RMA_IB_PROXY to comm
+gx10-6b41:173:173 [0] NCCL INFO ncclOsDlopen(libnccl-gin.so) failed: libnccl-gin.so: cannot open shared object file: No such file or directory
+gx10-6b41:173:173 [0] NCCL INFO GIN/Plugin: Could not find: libnccl-gin.so
+gx10-6b41:173:173 [0] NCCL INFO GIN/Plugin: Failed to load external plugin libnccl-gin.so, dlHandle: (nil), ncclGin: (nil)
+gx10-6b41:173:173 [0] NCCL INFO GIN/Plugin: Assigned plugin GIN_IB_GDAKI type 3 to comm
+gx10-6b41:173:173 [0] NCCL INFO Using network IB
+gx10-6b41:173:173 [0] NCCL INFO Loaded NVML from libnvidia-ml.so.1
+gx10-e146:172:172 [0] NCCL INFO [Rank 1] ncclCommInitRankConfig comm 0xba3fb3d169a0 rank 1 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0x3e205b94a3d179c - Init START
+spark-5fa1:164:164 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-6b41:173:173 [0] NCCL INFO [Rank 2] ncclCommInitRankConfig comm 0xbedf32ce7d30 rank 2 nranks 4 cudaDev 0 nvmlDev 0 busId f01000 commId 0x3e205b94a3d179c - Init START
+gx10-e146:172:172 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-3c91:178:178 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+gx10-6b41:173:173 [0] NCCL INFO RAS client listening socket at 127.0.0.1<28028>
+spark-5fa1:164:164 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+gx10-3c91:178:178 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+gx10-e146:172:172 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+gx10-6b41:173:173 [0] NCCL INFO NCCL_P2P_LEVEL set by environment to SYS
+spark-5fa1:164:164 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:172:172 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-3c91:178:178 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:172:172 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:164:164 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:173:173 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-6b41:173:173 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:173:173 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+gx10-6b41:173:173 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[0 1 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+gx10-6b41:173:173 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+gx10-6b41:173:173 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+gx10-6b41:173:173 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[2 3 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+gx10-6b41:173:173 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+gx10-e146:172:172 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+spark-5fa1:164:164 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-e146:172:172 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-e146:172:172 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:172:172 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:172:172 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-e146:172:172 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-e146:172:172 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-e146:172:172 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-e146:172:172 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-e146:172:172 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+gx10-e146:172:172 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[0 1 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+gx10-e146:172:172 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+gx10-e146:172:172 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+gx10-e146:172:172 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[2 3 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+gx10-e146:172:172 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+spark-5fa1:164:164 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+spark-5fa1:164:164 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:164:164 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:164:164 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+spark-5fa1:164:164 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+spark-5fa1:164:164 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[0 1 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+spark-5fa1:164:164 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+spark-5fa1:164:164 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+spark-5fa1:164:164 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[2 3 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+spark-5fa1:164:164 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+gx10-3c91:178:178 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-3c91:178:178 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-3c91:178:178 [0] NCCL INFO NET/GIN_IB_GDAKI : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-3c91:178:178 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-3c91:178:178 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-3c91:178:178 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-3c91:178:178 [0] NCCL INFO NET/RMA_IB_PROXY : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 0 'rocep1s0f0'
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 1 'rocep1s0f1'
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 2 'roceP2p1s0f0'
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : GPU Direct RDMA Disabled for HCA 3 'roceP2p1s0f1'
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+gx10-3c91:178:178 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[0 1 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+gx10-3c91:178:178 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+gx10-3c91:178:178 [0] NCCL INFO NET/IB : Skipping makeVDevice, NCCL_IB_MERGE_NICS=0
+gx10-3c91:178:178 [0] NCCL INFO TOPO/NET : Tried merging multiple devices together and failed. vProps={ndevs=2, devs=[2 3 0 0]}. Set NCCL_NET_MERGE_LEVEL=LOC to disable NIC fusion.
+gx10-3c91:178:178 [0] NCCL INFO Marking physical devices as unplaced, increasing distance and restarting search.
+spark-5fa1:164:164 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity = ).
+gx10-e146:172:172 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity = ).
+spark-5fa1:164:164 [0] NCCL INFO Rank 0: 4 Net devices
+spark-5fa1:164:164 [0] NCCL INFO Rank 0: 0 CollNet devices
+gx10-6b41:173:173 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity = ).
+gx10-3c91:178:178 [0] NCCL INFO ncclTopoGetCpuAffinity: Affinity for GPU 0 is empty, ignoring. (GPU affinity = ).
+gx10-e146:172:172 [0] NCCL INFO Rank 1: 4 Net devices
+gx10-e146:172:172 [0] NCCL INFO Rank 1: 0 CollNet devices
+gx10-6b41:173:173 [0] NCCL INFO Rank 2: 4 Net devices
+gx10-6b41:173:173 [0] NCCL INFO Rank 2: 0 CollNet devices
+gx10-3c91:178:178 [0] NCCL INFO Rank 3: 4 Net devices
+gx10-3c91:178:178 [0] NCCL INFO Rank 3: 0 CollNet devices
+spark-5fa1:164:164 [0] NCCL INFO Local Net device counts across ranks: min 4 max 4
+spark-5fa1:164:164 [0] NCCL INFO Local CollNet device counts across ranks: min 0 max 0
+spark-5fa1:164:164 [0] NCCL INFO comm 0xbd9f60093880 rank 0 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+spark-5fa1:164:164 [0] NCCL INFO Channel 00/04 : 0 1 2 3
+spark-5fa1:164:164 [0] NCCL INFO Channel 01/04 : 0 1 2 3
+spark-5fa1:164:164 [0] NCCL INFO Channel 02/04 : 0 1 2 3
+spark-5fa1:164:164 [0] NCCL INFO Channel 03/04 : 0 1 2 3
+spark-5fa1:164:164 [0] NCCL INFO Trees [0] 2/-1/-1->0->-1 [1] 2/-1/-1->0->-1 [2] 2/-1/-1->0->-1 [3] 2/-1/-1->0->-1
+spark-5fa1:164:164 [0] NCCL INFO P2P Chunksize set to 262144
+spark-5fa1:164:164 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+spark-5fa1:164:164 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+spark-5fa1:164:164 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+spark-5fa1:164:164 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-6b41:173:173 [0] NCCL INFO comm 0xbedf32ce7d30 rank 2 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+gx10-6b41:173:173 [0] NCCL INFO Trees [0] 1/3/-1->2->0 [1] 1/3/-1->2->0 [2] 1/3/-1->2->0 [3] 1/3/-1->2->0
+gx10-6b41:173:173 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-6b41:173:173 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+gx10-6b41:173:173 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-6b41:173:173 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-6b41:173:173 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-6b41:173:183 [0] NCCL INFO [Proxy Service] Device 0 CPU core 11
+gx10-6b41:173:183 [0] NCCL INFO proxy listening socket at 192.168.1.66<45565>
+gx10-6b41:173:184 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 0
+spark-5fa1:164:175 [0] NCCL INFO [Proxy Service] Device 0 CPU core 1
+spark-5fa1:164:175 [0] NCCL INFO proxy listening socket at 192.168.1.70<49995>
+gx10-e146:172:172 [0] NCCL INFO comm 0xba3fb3d169a0 rank 1 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+gx10-e146:172:172 [0] NCCL INFO Trees [0] -1/-1/-1->1->2 [1] -1/-1/-1->1->2 [2] -1/-1/-1->1->2 [3] -1/-1/-1->1->2
+gx10-e146:172:172 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-e146:172:172 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+gx10-e146:172:172 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-e146:172:172 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-e146:172:172 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+gx10-3c91:178:178 [0] NCCL INFO comm 0xb50e65d3d230 rank 3 nRanks 4 nNodes 4 localRanks 1 localRank 0 MNNVL 0
+gx10-3c91:178:178 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] -1/-1/-1->3->2
+gx10-3c91:178:178 [0] NCCL INFO P2P Chunksize set to 262144
+gx10-3c91:178:178 [0] NCCL INFO Tuning P2P operations with maxP2pPeers = 4
+gx10-3c91:178:178 [0] NCCL INFO ncclOsDlopen(libnccl-profiler.so) failed: libnccl-profiler.so: cannot open shared object file: No such file or directory
+gx10-3c91:178:178 [0] NCCL INFO PROFILER/Plugin: Could not find: libnccl-profiler.so
+gx10-3c91:178:178 [0] NCCL INFO Check P2P Type isAllDirectP2p 1 directMode 0 isAllCudaP2p 1
+spark-5fa1:164:176 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 3
+gx10-e146:172:183 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 3
+gx10-3c91:178:188 [0] NCCL INFO [Proxy Service] Device 0 CPU core 3
+gx10-3c91:178:188 [0] NCCL INFO proxy listening socket at 192.168.1.76<55367>
+gx10-e146:172:182 [0] NCCL INFO [Proxy Service] Device 0 CPU core 8
+gx10-e146:172:182 [0] NCCL INFO proxy listening socket at 192.168.1.6<39933>
+gx10-3c91:178:189 [0] NCCL INFO [Proxy Service UDS] Device 0 CPU core 6
+spark-5fa1:164:177 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 9
+spark-5fa1:164:175 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 0 IbDev 0 Port 1 GID 3 (0/2A4640AFFFF0000)
+spark-5fa1:164:175 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 1 IbDev 1 Port 1 GID 3 (0/2A2640AFFFF0000)
+
+[2026-10-10 03:28:09] spark-5fa1:164:175 [0] transport/net_ib/connect.cc:652 (ncclIbListen) NCCL WARN SWITCHLESS/HARDENED: more than two eligible listener GIDs
+spark-5fa1:164:175 [0] NCCL INFO transport/net.cc:810 (recvProxySetup) -> 5
+spark-5fa1:164:164 [0] NCCL INFO transport/net.cc:374 (recvSetup) -> 5
+spark-5fa1:164:164 [0] NCCL INFO transport.cc:34 (selectTransport) -> 5
+spark-5fa1:164:164 [0] NCCL INFO transport.cc:173 (ncclTransportP2pSetup) -> 5
+spark-5fa1:164:164 [0] NCCL INFO transport/generic.cc:35 (ncclTransportRingConnect) -> 5
+spark-5fa1:164:164 [0] NCCL INFO init.cc:1565 (initTransportsRank) -> 5
+spark-5fa1:164:164 [0] NCCL INFO init.cc:1921 (ncclCommInitRankFunc) -> 5
+spark-5fa1:164:164 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 5 [Async thread]
+spark-5fa1:164:164 [0] NCCL INFO group.cc:626 (groupLaunch) -> 5
+spark-5fa1:164:164 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 5
+spark-5fa1:164:164 [0] NCCL INFO group.cc:110 (ncclGroupEnd) -> 5
+spark-5fa1: Test NCCL failure common.cu:222 'invalid usage (run with NCCL_DEBUG=WARN for details) / '
+ .. spark-5fa1 pid 164: Test failure common.cu:1620
+ .. spark-5fa1 pid 164: Test failure common.cu:1454
+gx10-3c91:178:190 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 4
+gx10-3c91:178:188 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 0 IbDev 0 Port 1 GID 3 (0/1A2640AFFFF0000)
+gx10-3c91:178:188 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 1 IbDev 1 Port 1 GID 3 (0/2A6640AFFFF0000)
+
+[2026-10-10 03:28:09] gx10-3c91:178:188 [0] transport/net_ib/connect.cc:652 (ncclIbListen) NCCL WARN SWITCHLESS/HARDENED: more than two eligible listener GIDs
+gx10-3c91:178:188 [0] NCCL INFO transport/net.cc:810 (recvProxySetup) -> 5
+gx10-3c91:178:178 [0] NCCL INFO transport/net.cc:374 (recvSetup) -> 5
+gx10-3c91:178:178 [0] NCCL INFO transport.cc:34 (selectTransport) -> 5
+gx10-3c91:178:178 [0] NCCL INFO transport.cc:173 (ncclTransportP2pSetup) -> 5
+gx10-3c91:178:178 [0] NCCL INFO transport/generic.cc:35 (ncclTransportRingConnect) -> 5
+gx10-3c91:178:178 [0] NCCL INFO init.cc:1565 (initTransportsRank) -> 5
+gx10-3c91:178:178 [0] NCCL INFO init.cc:1921 (ncclCommInitRankFunc) -> 5
+gx10-3c91:178:178 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 5 [Async thread]
+gx10-3c91:178:178 [0] NCCL INFO group.cc:626 (groupLaunch) -> 5
+gx10-3c91:178:178 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 5
+gx10-3c91:178:178 [0] NCCL INFO group.cc:110 (ncclGroupEnd) -> 5
+gx10-3c91: Test NCCL failure common.cu:222 'invalid usage (run with NCCL_DEBUG=WARN for details) / '
+ .. gx10-3c91 pid 178: Test failure common.cu:1620
+ .. gx10-3c91 pid 178: Test failure common.cu:1454
+gx10-e146:172:184 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 0
+gx10-e146:172:182 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 0 IbDev 0 Port 1 GID 3 (0/2A0640AFFFF0000)
+gx10-e146:172:182 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 1 IbDev 1 Port 1 GID 3 (0/1A4640AFFFF0000)
+
+[2026-10-10 03:28:09] gx10-e146:172:182 [0] transport/net_ib/connect.cc:652 (ncclIbListen) NCCL WARN SWITCHLESS/HARDENED: more than two eligible listener GIDs
+gx10-e146:172:182 [0] NCCL INFO transport/net.cc:810 (recvProxySetup) -> 5
+gx10-e146:172:172 [0] NCCL INFO transport/net.cc:374 (recvSetup) -> 5
+gx10-e146:172:172 [0] NCCL INFO transport.cc:34 (selectTransport) -> 5
+gx10-e146:172:172 [0] NCCL INFO transport.cc:173 (ncclTransportP2pSetup) -> 5
+gx10-e146:172:172 [0] NCCL INFO transport/generic.cc:35 (ncclTransportRingConnect) -> 5
+gx10-e146:172:172 [0] NCCL INFO init.cc:1565 (initTransportsRank) -> 5
+gx10-e146:172:172 [0] NCCL INFO init.cc:1921 (ncclCommInitRankFunc) -> 5
+gx10-e146:172:172 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 5 [Async thread]
+gx10-e146:172:172 [0] NCCL INFO group.cc:626 (groupLaunch) -> 5
+gx10-e146:172:172 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 5
+gx10-e146:172:172 [0] NCCL INFO group.cc:110 (ncclGroupEnd) -> 5
+gx10-e146: Test NCCL failure common.cu:222 'invalid usage (run with NCCL_DEBUG=WARN for details) / '
+ .. gx10-e146 pid 172: Test failure common.cu:1620
+ .. gx10-e146 pid 172: Test failure common.cu:1454
+gx10-6b41:173:185 [0] NCCL INFO [Proxy Progress] Device 0 CPU core 11
+gx10-6b41:173:183 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 0 IbDev 0 Port 1 GID 3 (0/1A6640AFFFF0000)
+gx10-6b41:173:183 [0] NCCL INFO SWITCHLESS/HARDENED: listener slot 1 IbDev 1 Port 1 GID 3 (0/1A0640AFFFF0000)
+
+[2026-10-10 03:28:09] gx10-6b41:173:183 [0] transport/net_ib/connect.cc:652 (ncclIbListen) NCCL WARN SWITCHLESS/HARDENED: more than two eligible listener GIDs
+gx10-6b41:173:183 [0] NCCL INFO transport/net.cc:810 (recvProxySetup) -> 5
+gx10-6b41:173:173 [0] NCCL INFO transport/net.cc:374 (recvSetup) -> 5
+gx10-6b41:173:173 [0] NCCL INFO transport.cc:34 (selectTransport) -> 5
+gx10-6b41:173:173 [0] NCCL INFO transport.cc:173 (ncclTransportP2pSetup) -> 5
+gx10-6b41:173:173 [0] NCCL INFO transport/generic.cc:35 (ncclTransportRingConnect) -> 5
+gx10-6b41:173:173 [0] NCCL INFO init.cc:1565 (initTransportsRank) -> 5
+gx10-6b41:173:173 [0] NCCL INFO init.cc:1921 (ncclCommInitRankFunc) -> 5
+gx10-6b41:173:173 [0] NCCL INFO group.cc:79 (ncclAsyncJobMain) -> 5 [Async thread]
+gx10-6b41:173:173 [0] NCCL INFO group.cc:626 (groupLaunch) -> 5
+gx10-6b41:173:173 [0] NCCL INFO group.cc:862 (ncclGroupEndInternal) -> 5
+gx10-6b41:173:173 [0] NCCL INFO group.cc:110 (ncclGroupEnd) -> 5
+gx10-6b41: Test NCCL failure common.cu:222 'invalid usage (run with NCCL_DEBUG=WARN for details) / '
+ .. gx10-6b41 pid 173: Test failure common.cu:1620
+ .. gx10-6b41 pid 173: Test failure common.cu:1454
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[56576,1],3]
+  Exit code:    3
+--------------------------------------------------------------------------
+# exit=3

@@ -1,0 +1,4 @@
+spark-5fa1 used=111G avail=9G swap_used=3G  gpu_mem=100968 MiB 
+gx10-e146 used=109G avail=12G swap_used=2G  gpu_mem=100970 MiB 
+gx10-6b41 used=109G avail=11G swap_used=2G  gpu_mem=100964 MiB 
+gx10-3c91 used=110G avail=11G swap_used=3G  gpu_mem=100968 MiB 

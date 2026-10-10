@@ -1,0 +1,14 @@
+== cell: prompt-effect pair (c=1, 256 out) ==
+  code-brief rep 0: decode=112.3 tok/s ttft=399ms prompt_tok=18 out=256
+  code-brief rep 1: decode=107.5 tok/s ttft=279ms prompt_tok=18 out=256
+  code-brief rep 2: decode=108.7 tok/s ttft=320ms prompt_tok=18 out=256
+  code-brief rep 3: decode=110.6 tok/s ttft=279ms prompt_tok=18 out=256
+  code-brief rep 4: decode=110.4 tok/s ttft=280ms prompt_tok=18 out=256
+  dense-prose rep 0: decode=67.6 tok/s ttft=144ms prompt_tok=23 out=256
+  dense-prose rep 1: decode=67.8 tok/s ttft=121ms prompt_tok=23 out=256
+  dense-prose rep 2: decode=69.3 tok/s ttft=122ms prompt_tok=23 out=256
+  dense-prose rep 3: decode=67.9 tok/s ttft=156ms prompt_tok=23 out=256
+  dense-prose rep 4: decode=67.1 tok/s ttft=156ms prompt_tok=23 out=256
+  prompt effect: code-brief / dense-prose = 1.63x (anemll recorded 1.65x)
+
+wrote /home/sparkmain/bench/4x-dgx-spark-ring/dsv4-0731/raw/bench-tp4/prompt-effect.json
