@@ -1,0 +1,95 @@
+gx10-e146
+## addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enP7s7           UP             192.168.1.6/24 fe80::570b:b591:6889:74eb/64 
+enp1s0f0np0      UP             10.100.160.2/24 fe80::32c5:99ff:febf:e147/64 
+enp1s0f1np1      UP             10.100.164.1/24 fe80::32c5:99ff:febf:e148/64 
+enP2p1s0f0np0    UP             10.100.161.2/24 fe80::32c5:99ff:febf:e14b/64 
+enP2p1s0f1np1    UP             10.100.165.1/24 fe80::32c5:99ff:febf:e14c/64 
+wlP9s9           DOWN           
+docker0          UP             172.17.0.1/16 fe80::783f:b6ff:feb0:141a/64 
+veth685a365@if2  UP             fe80::44a8:70ff:fe1c:c020/64 
+## mtu
+lo: 65536
+enP7s7: 1500
+enp1s0f0np0: 9000
+enp1s0f1np1: 9000
+enP2p1s0f0np0: 9000
+enP2p1s0f1np1: 9000
+wlP9s9: 1500
+docker0: 1500
+veth685a365@if2: 1500
+## route
+default via 192.168.1.1 dev enP7s7 proto dhcp src 192.168.1.6 metric 106 
+10.100.160.0/24 dev enp1s0f0np0 proto kernel scope link src 10.100.160.2 
+10.100.161.0/24 dev enP2p1s0f0np0 proto kernel scope link src 10.100.161.2 
+10.100.163.1 via 10.100.165.2 dev enP2p1s0f1np1 src 10.100.165.1 
+10.100.164.0/24 dev enp1s0f1np1 proto kernel scope link src 10.100.164.1 
+10.100.165.0/24 dev enP2p1s0f1np1 proto kernel scope link src 10.100.165.1 
+10.100.166.2 via 10.100.160.1 dev enp1s0f0np0 src 10.100.160.2 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 
+192.168.1.0/24 dev enP7s7 proto kernel scope link src 192.168.1.6 metric 106 
+## rule
+0:	from all lookup local
+32766:	from all lookup main
+32767:	from all lookup default
+## gid3
+rocep1s0f0 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a002
+rocep1s0f1 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a401
+roceP2p1s0f0 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a102
+roceP2p1s0f1 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a501
+## mesh units
+  dsv41-mesh-marker@rocep1s0f0.service   loaded active running RDMA-TX source marker on rocep1s0f0 (opposite-node traffic, UDP source port 65535 -> EtherType 0x88b5)
+  dsv41-mesh-marker@roceP2p1s0f1.service loaded active running RDMA-TX source marker on roceP2p1s0f1 (opposite-node traffic, UDP source port 65535 -> EtherType 0x88b5)
+## tc
+# enp1s0f0np0
+filter protocol [34997] pref 49162 flower chain 0 
+filter protocol [34997] pref 49162 flower chain 0 handle 0xc00a 
+  dst_mac 30:c5:99:bf:e1:47
+  src_mac 30:c5:99:be:6b:43
+  eth_type 88b5
+  skip_sw
+  in_hw in_hw_count 1
+	action order 1:  pedit action pipe keys 1
+ 	 index 3 ref 1 bind 1
+	 key #0  at eth+12: val 08000000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 2:  pedit action pipe keys 2
+ 	 index 4 ref 1 bind 1
+	 key #0  at eth+0: val 4cbb472e mask 00000000
+	 key #1  at eth+4: val 5fa20000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 3: mirred (Egress Redirect to device enp1s0f1np1) stolen
+	index 2 ref 1 bind 1
+	used_hw_stats delayed
+
+# enp1s0f1np1
+filter protocol [34997] pref 49152 flower chain 0 
+filter protocol [34997] pref 49152 flower chain 0 handle 0xc000 
+  dst_mac 30:c5:99:bf:e1:48
+  src_mac 4c:bb:47:2e:5f:a2
+  eth_type 88b5
+  skip_sw
+  in_hw in_hw_count 1
+	action order 1:  pedit action pipe keys 1
+ 	 index 1 ref 1 bind 1
+	 key #0  at eth+12: val 08000000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 2:  pedit action pipe keys 2
+ 	 index 2 ref 1 bind 1
+	 key #0  at eth+0: val 30c599be mask 00000000
+	 key #1  at eth+4: val 6b430000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 3: mirred (Egress Redirect to device enp1s0f0np0) stolen
+	index 1 ref 1 bind 1
+	used_hw_stats delayed
+
+# enP2p1s0f0np0
+# enP2p1s0f1np1
+## nfs
+10.100.164.2:/home/sparkmain/dsv4/hf-DeepSeek-V4-Flash-0731 on /mnt/sparkmain/dsv4-0731 type nfs4 (ro,relatime,vers=4.2,rsize=1048576,wsize=1048576,namlen=255,hard,fatal_neterrors=none,proto=tcp,nconnect=8,timeo=600,retrans=2,sec=sys,clientaddr=10.100.164.1,local_lock=none,addr=10.100.164.2)
+10.100.164.2:/home/sparkmain/dsv4/hf-DeepSeek-V4-Flash-0731 on /tmp/dsv4tp4/hf-DeepSeek-V4-Flash-0731 type nfs4 (ro,relatime,vers=4.2,rsize=1048576,wsize=1048576,namlen=255,hard,fatal_neterrors=none,proto=tcp,nconnect=8,timeo=600,retrans=2,sec=sys,clientaddr=10.100.164.1,local_lock=none,addr=10.100.164.2)

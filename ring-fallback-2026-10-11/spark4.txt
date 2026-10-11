@@ -1,0 +1,97 @@
+gx10-3c91
+## addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enP7s7           UP             192.168.1.76/24 fe80::3d5c:fef3:6b59:992b/64 
+enp1s0f0np0      UP             10.100.162.1/24 
+enp1s0f1np1      UP             10.100.166.2/24 
+enP2p1s0f0np0    UP             10.100.163.1/24 
+enP2p1s0f1np1    UP             10.100.167.2/24 
+wlP9s9           DOWN           
+docker0          DOWN           172.17.0.1/16 fe80::c448:46ff:feb3:f8d4/64 
+tailscale0       UNKNOWN        100.118.122.114/32 fd7a:115c:a1e0::f32c:7a73/128 fe80::fcab:446:5272:8b/64 
+## mtu
+lo: 65536
+enP7s7: 1500
+enp1s0f0np0: 9000
+enp1s0f1np1: 9000
+enP2p1s0f0np0: 9000
+enP2p1s0f1np1: 9000
+wlP9s9: 1500
+docker0: 1500
+tailscale0: 1280
+## route
+default via 192.168.1.1 dev enP7s7 proto dhcp src 192.168.1.76 metric 100 
+10.100.160.2 via 10.100.166.1 dev enp1s0f1np1 src 10.100.166.2 
+10.100.162.0/24 dev enp1s0f0np0 proto kernel scope link src 10.100.162.1 
+10.100.163.0/24 dev enP2p1s0f0np0 proto kernel scope link src 10.100.163.1 
+10.100.165.1 via 10.100.163.2 dev enP2p1s0f0np0 src 10.100.163.1 
+10.100.166.0/24 dev enp1s0f1np1 proto kernel scope link src 10.100.166.2 
+10.100.167.0/24 dev enP2p1s0f1np1 proto kernel scope link src 10.100.167.2 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+192.168.1.0/24 dev enP7s7 proto kernel scope link src 192.168.1.76 metric 100 
+## rule
+0:	from all lookup local
+5210:	from all fwmark 0x80000/0xff0000 lookup main
+5230:	from all fwmark 0x80000/0xff0000 lookup default
+5250:	from all fwmark 0x80000/0xff0000 unreachable
+5270:	from all lookup 52
+32766:	from all lookup main
+32767:	from all lookup default
+## gid3
+rocep1s0f0 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a201
+rocep1s0f1 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a602
+roceP2p1s0f0 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a301
+roceP2p1s0f1 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a702
+## mesh units
+  dsv41-mesh-marker@rocep1s0f1.service   loaded active running RDMA-TX source marker on rocep1s0f1 (opposite-node traffic, UDP source port 65535 -> EtherType 0x88b5)
+  dsv41-mesh-marker@roceP2p1s0f0.service loaded active running RDMA-TX source marker on roceP2p1s0f0 (opposite-node traffic, UDP source port 65535 -> EtherType 0x88b5)
+## tc
+# enp1s0f0np0
+# enp1s0f1np1
+# enP2p1s0f0np0
+filter protocol [34997] pref 49155 flower chain 0 
+filter protocol [34997] pref 49155 flower chain 0 handle 0xc003 
+  dst_mac 30:c5:99:bd:3c:96
+  src_mac 4c:bb:47:2e:5f:a7
+  eth_type 88b5
+  skip_sw
+  in_hw in_hw_count 1
+	action order 1:  pedit action pipe keys 1
+ 	 index 1 ref 1 bind 1
+	 key #0  at eth+12: val 08000000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 2:  pedit action pipe keys 2
+ 	 index 2 ref 1 bind 1
+	 key #0  at eth+0: val 30c599be mask 00000000
+	 key #1  at eth+4: val 6b460000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 3: mirred (Egress Redirect to device enP2p1s0f1np1) stolen
+	index 1 ref 1 bind 1
+	used_hw_stats delayed
+
+# enP2p1s0f1np1
+filter protocol [34997] pref 49161 flower chain 0 
+filter protocol [34997] pref 49161 flower chain 0 handle 0xc009 
+  dst_mac 30:c5:99:bd:3c:97
+  src_mac 30:c5:99:be:6b:46
+  eth_type 88b5
+  skip_sw
+  in_hw in_hw_count 1
+	action order 1:  pedit action pipe keys 1
+ 	 index 3 ref 1 bind 1
+	 key #0  at eth+12: val 08000000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 2:  pedit action pipe keys 2
+ 	 index 4 ref 1 bind 1
+	 key #0  at eth+0: val 4cbb472e mask 00000000
+	 key #1  at eth+4: val 5fa70000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 3: mirred (Egress Redirect to device enP2p1s0f0np0) stolen
+	index 2 ref 1 bind 1
+	used_hw_stats delayed
+
+## nfs

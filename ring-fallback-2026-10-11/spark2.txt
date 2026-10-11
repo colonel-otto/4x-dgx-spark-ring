@@ -1,0 +1,96 @@
+gx10-6b41
+## addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enP7s7           UP             192.168.1.66/24 fe80::da9a:c520:6ce:d0ff/64 
+enp1s0f0np0      UP             10.100.166.1/24 fe80::32c5:99ff:febe:6b42/64 
+enp1s0f1np1      UP             10.100.160.1/24 fe80::32c5:99ff:febe:6b43/64 
+enP2p1s0f0np0    UP             10.100.167.1/24 fe80::32c5:99ff:febe:6b46/64 
+enP2p1s0f1np1    UP             10.100.161.1/24 fe80::32c5:99ff:febe:6b47/64 
+wlP9s9           UP             192.168.1.27/24 fe80::32db:3aef:79e7:d0dd/64 
+docker0          UP             172.17.0.1/16 fe80::cc47:e5ff:feb6:f172/64 
+veth41478d9@if2  UP             fe80::a8bb:d2ff:fef5:e958/64 
+## mtu
+lo: 65536
+enP7s7: 1500
+enp1s0f0np0: 9000
+enp1s0f1np1: 9000
+enP2p1s0f0np0: 9000
+enP2p1s0f1np1: 9000
+wlP9s9: 1500
+docker0: 1500
+veth41478d9@if2: 1500
+## route
+default via 192.168.1.1 dev enP7s7 proto dhcp src 192.168.1.66 metric 104 
+default via 192.168.1.1 dev wlP9s9 proto dhcp src 192.168.1.27 metric 600 
+10.100.160.0/24 dev enp1s0f1np1 proto kernel scope link src 10.100.160.1 
+10.100.161.0/24 dev enP2p1s0f1np1 proto kernel scope link src 10.100.161.1 
+10.100.163.2 via 10.100.167.2 dev enP2p1s0f0np0 src 10.100.167.1 
+10.100.164.2 via 10.100.160.2 dev enp1s0f1np1 src 10.100.160.1 
+10.100.166.0/24 dev enp1s0f0np0 proto kernel scope link src 10.100.166.1 
+10.100.167.0/24 dev enP2p1s0f0np0 proto kernel scope link src 10.100.167.1 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 
+192.168.1.0/24 dev enP7s7 proto kernel scope link src 192.168.1.66 metric 104 
+192.168.1.0/24 dev wlP9s9 proto kernel scope link src 192.168.1.27 metric 600 
+## rule
+0:	from all lookup local
+32766:	from all lookup main
+32767:	from all lookup default
+## gid3
+rocep1s0f0 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a601
+rocep1s0f1 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a001
+roceP2p1s0f0 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a701
+roceP2p1s0f1 RoCE v2 0000:0000:0000:0000:0000:ffff:0a64:a101
+## mesh units
+  dsv41-mesh-marker@rocep1s0f1.service   loaded active running RDMA-TX source marker on rocep1s0f1 (opposite-node traffic, UDP source port 65535 -> EtherType 0x88b5)
+  dsv41-mesh-marker@roceP2p1s0f0.service loaded active running RDMA-TX source marker on roceP2p1s0f0 (opposite-node traffic, UDP source port 65535 -> EtherType 0x88b5)
+## tc
+# enp1s0f0np0
+filter protocol [34997] pref 49166 flower chain 0 
+filter protocol [34997] pref 49166 flower chain 0 handle 0xc00e 
+  dst_mac 30:c5:99:be:6b:42
+  src_mac 30:c5:99:bd:3c:93
+  eth_type 88b5
+  skip_sw
+  in_hw in_hw_count 1
+	action order 1:  pedit action pipe keys 1
+ 	 index 3 ref 1 bind 1
+	 key #0  at eth+12: val 08000000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 2:  pedit action pipe keys 2
+ 	 index 4 ref 1 bind 1
+	 key #0  at eth+0: val 30c599bf mask 00000000
+	 key #1  at eth+4: val e1470000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 3: mirred (Egress Redirect to device enp1s0f1np1) stolen
+	index 2 ref 1 bind 1
+	used_hw_stats delayed
+
+# enp1s0f1np1
+filter protocol [34997] pref 49156 flower chain 0 
+filter protocol [34997] pref 49156 flower chain 0 handle 0xc004 
+  dst_mac 30:c5:99:be:6b:43
+  src_mac 30:c5:99:bf:e1:47
+  eth_type 88b5
+  skip_sw
+  in_hw in_hw_count 1
+	action order 1:  pedit action pipe keys 1
+ 	 index 1 ref 1 bind 1
+	 key #0  at eth+12: val 08000000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 2:  pedit action pipe keys 2
+ 	 index 2 ref 1 bind 1
+	 key #0  at eth+0: val 30c599bd mask 00000000
+	 key #1  at eth+4: val 3c930000 mask 0000ffff
+	used_hw_stats delayed
+
+	action order 3: mirred (Egress Redirect to device enp1s0f0np0) stolen
+	index 1 ref 1 bind 1
+	used_hw_stats delayed
+
+# enP2p1s0f0np0
+# enP2p1s0f1np1
+## nfs
+10.100.164.2:/home/sparkmain/dsv4/hf-DeepSeek-V4-Flash-0731 on /tmp/dsv4tp4/hf-DeepSeek-V4-Flash-0731 type nfs4 (ro,relatime,vers=4.2,rsize=1048576,wsize=1048576,namlen=255,hard,fatal_neterrors=none,proto=tcp,nconnect=8,timeo=600,retrans=2,sec=sys,clientaddr=10.100.160.1,local_lock=none,addr=10.100.164.2)

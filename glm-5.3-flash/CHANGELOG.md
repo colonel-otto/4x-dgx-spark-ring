@@ -108,3 +108,8 @@ Every change made to the cluster for this measurement, newest last. Recovery ste
   `fabric-ring-up` and `dsv41-ring-up` before any engine. `ring-pipeline.sh` now refuses to start after a LAN drop in the
   last 20 min. Only one session may drive engines at a time: this session stopped its auto-starter
   (`ring-start-when-lan-stable.sh`, never launched) and holds all engine, fabric and ring actions until the user picks an owner.
+
+## 2026-10-11 ~20:00: ring state saved before the CRS504 move
+- Saved live fabric/route/mesh state from all 4 nodes, plus copies of `fabric-ring-up.sh`, `dsv41-ring-up.sh`,
+  `ring-mesh/` and `.env.switchless`, in `../ring-fallback-2026-10-11/` (README has restore steps). Read-only; nothing on
+  the cluster changed. Engine still serving.
