@@ -199,3 +199,29 @@ Left serving on :8100 at 16:07 (user decision: GLM-5.3 replaces DSv4.1). Start/s
 - Not applicable / rejected: NVFP4 KV (TP2, MTP only, no DFlash2), W4A4 experts (16–21 % output error), `K_LO=2`,
   `BATCHED_TOKENS=9223`, vLLM v0.31 hybrid (untested whole, switched), EXL3-specific tricks.
 - Unverified: matching kernel/driver on spark4 (7.0/580.178 vs 6.17/580.173) claimed large gains by one forum user.
+
+## Before / after: what the LVKP changes bought (same harness, same ring, 2026-10-11)
+
+"Before" = alexellis recipe (LibertAI NVFP4, BF16 dense, stock vLLM flags, max-num-seqs 6). "After" = LVKP (nvidia NVFP4 +
+8-bit dense, FP8 drafter, knapcio kernel overlay and flags, max-num-seqs 32). Mean of the two passes; DSv4.1 for reference.
+The ring-RoCEnante patch (PR #4) has **not** been measured: no attempt reached model boot.
+
+| | before | after | change | DSv4.1 |
+|---|---|---|---|---|
+| decode c1, per stream | 97.7 | **114.6** | **+17 %** | 129.4 |
+| TTFT c1 (256-tok prompt) | 326 ms | **287 ms** | −12 % | 241 ms |
+| aggregate c4 / c8 / c16 | 157 / 175 / 177 | 164 / **250** / **296** | +4 / **+43** / **+67 %** | 183 / 288 / 414 |
+| per-stream c8 / c16 | 53 / 42 | 47 / 26 | −11 / −38 % (more streams really run at once) | 54 / 40 |
+| TTFT c8 / c16 | 0.79 / **4.0 s** | 0.96 / **1.75 s** | +21 % / **−56 %** | 0.79 / 1.33 s |
+| TTFT 2K / 8K / 32K / 131K | 1.1 / 3.9 / 15.5 / 63.0 s | **0.80 / 2.7 / 9.7 / 40.0 s** | **−27 / −32 / −37 / −37 %** | 0.54 / 1.56 / 6.0 / 24.3 s |
+| decode at 2K / 8K / 32K / 131K depth | 65 / 71 / 73 / 73 | **107 / 92 / 99 / 106** | +31–65 % | 104 / 106 / 115 / 106 |
+| real-text prefill (21–94K) | 1.59–1.77k tok/s | **2.91–3.25k** | **+85 %** | 4.2–4.8k |
+| gate warm decode (code) | 73.6 | **85.8** | +17 % | — |
+| qeval | 73/75, median 58 tok/s, 186 s | 72/75, **median 78 tok/s, 112 s** | answers +34 % faster | 72/75 |
+| boot | 790 s | **510 s** (cold) / ~150 s warm `docker start` | −35 % | ~360 s |
+
+Reading: single-stream decode and every latency figure improved except c8/c16 per-stream speed. That drop is the cap
+removal: before, requests 7–16 waited in a queue (hence 4 s TTFT at c16); now all 16 run at once, so each gets a smaller
+share but the total and the time to first token are far better. qeval moved by one task within its 2–3-point run-to-run
+spread. Over the evening the gap to DSv4.1 shrank from ~25 % to ~11 % on c1 decode, and from 2.3× to 1.4× on c16
+aggregate.

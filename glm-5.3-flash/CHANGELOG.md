@@ -94,21 +94,17 @@ Every change made to the cluster for this measurement, newest last. Recovery ste
   stopping it. I killed the pipeline mid-`start.sh stop`, which left r0/r1 stopped and r2/r3 running. 19:11: all four
   LVKP containers stopped, GPUs verified idle, then `docker start` r3→r0. Fix: the pipeline now starts its own
   watchdog with `$$`. Logs: `logs/ring/` (attempt 1).
-- **19:15 external incident: spark2 hard-reset, and the LAN dropped on 3 nodes at once.** sparkmain, spark1 and spark2 all logged
-  `enP7s7` link down 19:15:30–19:15:44 and again 19:23:39–19:24:33. spark2's previous boot log stops at 19:15:14 with
-  no shutdown, panic or OOM entry; it was back up at 19:17. spark4 logged nothing. Likely a shared power or LAN-switch
-  glitch; **check the power feeding spark2 and the switch.** Ring test attempt 2 failed cleanly at "sync to spark1"
-  (the rsync ran during the LAN blip) and rolled back; r2 could not restart because spark2 was down.
-  Recovery 19:26–19:30: stopped r0/r1/r3, ran `~/fabric-ring-up.sh` (8/8 links jumbo OK, 16/16 GID3 RoCE v2), ran
-  `~/bin/dsv41-ring-up.sh` (NFS, routes, spark2 mount, mesh markers 2/2 on all nodes), `docker start` r3→r0.
-  LVKP was serving again at 19:30:12. Logs: `logs/spark2-reboot/`, `logs/ring-attempt2-spark2-reset/`.
-- **19:14 ring test attempt 2 aborted by the LAN, not the code:** all four Sparks lost LAN carrier at the same moments
-  (19:00:56 17 s, 19:01:58 14 s, **19:15:30 14 s**, 19:23:39 54 s; `r8127: enP7s7: link down` on every node at identical
-  timestamps; none in the previous 7 days on sparkmain). This points at the shared LAN switch/power/uplink. The 19:15 drop
-  failed the source sync ("Network is unreachable"); the pipeline rolled back, but the rollback's ssh to spark2 also failed,
-  so `glm53-switchless-r2` stayed stopped and :8100 was down. 19:26: jobs stopped by PID, all four LVKP containers stopped,
-  GPUs verified idle, then `docker start` r3→r0 with a per-rank check. **19:30 LVKP serving again** (warm start ~2.5 min).
-  Downtime 19:14–19:30. Logs: `logs/ring-attempt2-landrop/`.
-- **Lesson:** TP ranks bootstrap and heartbeat over the LAN (TCPStore on 192.168.1.70:29669), so a LAN outage of
-  ~1 minute can take down a serving engine even though the model traffic is on the RoCE ring. `ring-pipeline.sh` now
-  refuses to start unless no node has had a LAN link drop in the last 20 minutes.
+- **19:00–19:30 incident: accidental unplug, spark2 hard reset, LAN carrier drops (merged record from both Claude sessions).**
+  The user unplugged a Spark by accident. All nodes logged `enP7s7` carrier drops at 19:00:56 (17 s), 19:01:58 (14 s),
+  19:15:30 (14 s) and 19:23:39 (54 s). spark2 hard-reset: its previous boot ends at 19:15:14 with no shutdown, panic or OOM
+  entry, and it booted again at 19:17:09. That wiped spark2's runtime fabric and mesh; session sparkmain-e1 re-ran
+  `fabric-ring-up` (8/8 links, 16/16 GID3) and `dsv41-ring-up` (markers 2/2 everywhere) at 19:26–19:28.
+  Two Claude sessions were driving the ring test at once. The source sync failed during the 19:15 drop
+  (`logs/ring-attempt2-spark2-reset/`); a 19:30 relaunch never got past preflight (`logs/ring-attempt2-landrop/`).
+  Both sessions stopped and started `glm53-switchless-r*` around 19:26–19:30. **LVKP serving again at 19:30:05** (checked
+  again 19:31:15). Downtime about 19:14–19:30. No ring (PR #4) code has run. Reboot evidence: `logs/spark2-reboot/`.
+- **Lessons:** TP ranks bootstrap and heartbeat over the LAN (TCPStore on 192.168.1.70:29669), so a ~1 min LAN outage can kill
+  a serving engine although model traffic is on the RoCE ring. A node reboot wipes its runtime fabric and mesh: run
+  `fabric-ring-up` and `dsv41-ring-up` before any engine. `ring-pipeline.sh` now refuses to start after a LAN drop in the
+  last 20 min. Only one session may drive engines at a time: this session stopped its auto-starter
+  (`ring-start-when-lan-stable.sh`, never launched) and holds all engine, fabric and ring actions until the user picks an owner.
