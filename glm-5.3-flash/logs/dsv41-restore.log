@@ -1,0 +1,29 @@
+=== doctor (DeepSeek-V4.1-Flash · 4× Spark · TP4 · SGLang) ===
+head:     spark-5fa1 / sparkmain @ 192.168.1.70
+workers:  @spark1 spark2 spark4  (192.168.1.6 192.168.1.66 192.168.1.76)
+image:    dsv41-4x-spark:canary-roce  (base lmsysorg/sglang:dev-dsv41@sha256:3dbc313030a6ef2c5d7de8ecf48e9aece722694a82182cb618cc82b588816349)
+model:    /home/sparkmain/models/DeepSeek-V4.1-Flash
+parallel: nnodes=4 TP=4 EP=1  ctx=1048576  util=0.80 (head 0.80)
+offload:  nvme  cache=4GiB  spec=DSPARK-5  port=8100
+decode:   wo_a_w8=0 mid=0 drop=0  draft_head_fp8=0  verify_cap=0  draft_tau=1  block_verify=0  engram_prefetch=0  folded_fence=0
+
+[0;32m[+][0m GPU: GPU 0: NVIDIA GB10 (UUID: GPU-2758cf06-25ac-5f28-05c0-7b3ae7ac9176)
+[0;32m[+][0m SSH key /home/sparkmain/.ssh/id_ed25519
+[0;32m[+][0m host arch: aarch64 (GB10 expects aarch64)
+[0;32m[+][0m overlay image present (arm64)
+[0;32m[+][0m checkpoint OK (48 / 48 shards, 476G)
+[0;32m[+][0m weights: NFS_SHARE=0 — head reads /home/sparkmain/models/DeepSeek-V4.1-Flash; workers use local volume dsv41-weights
+[0;32m[+][0m TP4 note: heads, o_groups, draft experts and vocab all divide by 4; no padding (DSV41_TP_PAD=0).
+[0;32m[+][0m NCCL preflight head OK (ACTIVE HCAs: rocep1s0f0,roceP2p1s0f0,rocep1s0f1,roceP2p1s0f1, RoCEv2 GID: 3)
+[0;32m[+][0m NCCL preflight spark1 OK (ACTIVE HCAs: rocep1s0f0,roceP2p1s0f0,rocep1s0f1,roceP2p1s0f1, RoCEv2 GID: 3)
+[0;32m[+][0m NCCL preflight spark2 OK (ACTIVE HCAs: rocep1s0f0,roceP2p1s0f0,rocep1s0f1,roceP2p1s0f1, RoCEv2 GID: 3)
+[0;32m[+][0m NCCL preflight spark4 OK (ACTIVE HCAs: rocep1s0f0,roceP2p1s0f0,rocep1s0f1,roceP2p1s0f1, RoCEv2 GID: 3)
+[0;32m[+][0m SSH spark1 OK → gx10-e146
+GPU 0: NVIDIA GB10 (UUID: GPU-09ca02ce-d03d-5a71-1881-5657147eaa59)
+IB_OK
+[0;32m[+][0m SSH spark2 OK → gx10-6b41
+GPU 0: NVIDIA GB10 (UUID: GPU-e18565ee-400b-eea7-8ca3-6e1720b32843)
+IB_OK
+[0;32m[+][0m SSH spark4 OK → gx10-3c91
+GPU 0: NVIDIA GB10 (UUID: GPU-be20ffc4-4e84-1dd6-5db5-7ea370ce8e7e)
+IB_OK

@@ -1,0 +1,96 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.roce
+#1 transferring dockerfile: 4.28kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for ghcr.io/tonyd2wild/vllm-glm53-flash@sha256:4def0ef644cb2e9814136dcffd5e385e21bc594f48f3b292234051904abe85a6
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 160B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 1.10MB 0.0s done
+#4 DONE 0.0s
+
+#5 [proxy 1/3] FROM ghcr.io/tonyd2wild/vllm-glm53-flash@sha256:4def0ef644cb2e9814136dcffd5e385e21bc594f48f3b292234051904abe85a6
+#5 DONE 0.3s
+
+#6 [proxy 2/3] COPY roce/b12x/b12x /opt/glm-roce-b12x/b12x
+#6 DONE 0.0s
+
+#7 [proxy 3/3] RUN set -eu;     if [ -f /usr/include/infiniband/verbs.h ] && command -v gcc >/dev/null; then echo "verbs.h + gcc present"; else       apt-get update;       v=$(dpkg-query -W -f='${Version}' libibverbs1 2>/dev/null || true);       apt-get install -y --no-install-recommends "libibverbs-dev=$v" gcc libc6-dev         || apt-get install -y --no-install-recommends libibverbs-dev gcc libc6-dev;     fi;     cd /opt/glm-roce-b12x && B12X_ROCE_CACHE_DIR=/proxy-cache python3 -c "from b12x.comm.roce import _proxy; print('proxy', _proxy._build())"
+#7 0.181 verbs.h + gcc present
+#7 ...
+
+#8 [stage-1  2/11] RUN python3 -c "import importlib.util as u, sys; s = u.find_spec('b12x'); sys.exit(f'base image already has b12x at {s.origin}: reconcile before adding RoCEnante') if s else print('no b12x in base: ok')"
+#8 0.225 no b12x in base: ok
+#8 DONE 0.2s
+
+#9 [stage-1  3/11] COPY roce/b12x/b12x /opt/glm-roce-b12x/b12x
+#9 DONE 0.0s
+
+#10 [stage-1  4/11] COPY roce/b12x/LICENSE roce/b12x/PROVENANCE.json /opt/glm-roce-b12x/
+#10 DONE 0.0s
+
+#11 [stage-1  5/11] COPY roce/glm_roce /opt/glm-roce/glm_roce
+#11 DONE 0.0s
+
+#12 [stage-1  6/11] COPY roce/tests /opt/glm-roce/tests
+#12 DONE 0.0s
+
+#13 [stage-1  7/11] COPY roce/glm_roce.pth /opt/glm-roce/glm_roce.pth
+#13 DONE 0.0s
+
+#7 [proxy 3/3] RUN set -eu;     if [ -f /usr/include/infiniband/verbs.h ] && command -v gcc >/dev/null; then echo "verbs.h + gcc present"; else       apt-get update;       v=$(dpkg-query -W -f='${Version}' libibverbs1 2>/dev/null || true);       apt-get install -y --no-install-recommends "libibverbs-dev=$v" gcc libc6-dev         || apt-get install -y --no-install-recommends libibverbs-dev gcc libc6-dev;     fi;     cd /opt/glm-roce-b12x && B12X_ROCE_CACHE_DIR=/proxy-cache python3 -c "from b12x.comm.roce import _proxy; print('proxy', _proxy._build())"
+#7 0.391 proxy /proxy-cache/roce_proxy-a35f54cf75d6abf2.so
+#7 DONE 0.4s
+
+#14 [stage-1  8/11] RUN python3 -c "import importlib.util as u, os, shutil; d = os.path.dirname(os.path.dirname(u.find_spec('vllm').origin)); shutil.copy('/opt/glm-roce/glm_roce.pth', d); print('glm_roce.pth ->', d)"
+#14 0.137 glm_roce.pth -> /usr/local/lib/python3.12/dist-packages
+#14 DONE 0.1s
+
+#15 [stage-1  9/11] COPY --from=proxy /proxy-cache /opt/glm-roce-b12x/proxy-cache
+#15 DONE 0.0s
+
+#16 [stage-1 10/11] RUN chmod -R a+rX /opt/glm-roce /opt/glm-roce-b12x
+#16 DONE 0.1s
+
+#17 [stage-1 11/11] RUN if [ "1" = 1 ]; then cd /opt/glm-roce  && env -u GLM_ROCE_ALLREDUCE CUDA_VISIBLE_DEVICES= python3 tests/test_glm_roce_cpu.py  && env -u GLM_ROCE_ALLREDUCE CUDA_VISIBLE_DEVICES= python3 tests/test_glm_roce_image.py; fi
+#17 1.215 GLM_ROCE: the image already routes through b12x_ar_comm (B12X_ROCENANTE); the shim stays off
+#17 1.215 PASS test_boot_hook_patch_failure_is_loud
+#17 1.215 PASS test_boot_hook_patches_on_import_once
+#17 1.215 PASS test_boot_off_installs_nothing
+#17 1.215 PASS test_existing_b12x_slot_keeps_shim_off
+#17 2.500 PASS test_four_ranks_limits_differ_all_raise
+#17 3.514 PASS test_four_ranks_one_rank_cannot_all_raise
+#17 4.233 GLM_ROCE disabled on every rank: rank 2: needs an integrated GPU with an active RDMA device; collectives stay on NCCL.
+#17 4.233 GLM_ROCE disabled on every rank: rank 2: needs an integrated GPU with an active RDMA device; collectives stay on NCCL.
+#17 4.233 GLM_ROCE disabled on every rank: rank 2: needs an integrated GPU with an active RDMA device; collectives stay on NCCL.
+#17 4.233 GLM_ROCE disabled on every rank: rank 2: needs an integrated GPU with an active RDMA device; collectives stay on NCCL.
+#17 4.834 PASS test_four_ranks_one_rank_cannot_lenient_all_nccl
+#17 6.082 PASS test_four_ranks_route_decode_sizes
+#17 7.350 PASS test_four_ranks_single_node_skips_without_error
+#17 7.350 PASS test_graph_capture_wrapper_order_and_passthrough
+#17 7.350 PASS test_graph_capture_wrapper_propagates_errors
+#17 7.350 PASS test_is_tp_group
+#17 7.350 PASS test_parse_byte_size
+#17 7.350 PASS test_pth_file_contents
+#17 7.350 PASS test_read_limits_defaults_and_validation
+#17 7.350 PASS test_worker_guard_failure_and_no_comm
+#17 7.350 PASS test_worker_guard_sync_none_async
+#17 7.350 PASS test_worker_patch_wraps_both_entry_points
+#17 7.350 ALL PASS
+#17 20.47 PASS runtime: API_VERSION=1 proxy ABI=3 at /opt/glm-roce-b12x/proxy-cache/roce_proxy-a35f54cf75d6abf2.so
+#17 20.47 PASS off: {'graph_capture': False, 'communicator': False, 'worker': False, 'b12x_importable': False, 'hook_loaded': True}
+#17 20.47 PASS on: {'graph_capture': True, 'communicator': True, 'worker': True, 'b12x_importable': True, 'hook_loaded': True, 'problems': []}
+#17 DONE 20.6s
+
+#18 exporting to image
+#18 exporting layers 0.1s done
+#18 writing image sha256:15d85c40b53ddfb8b469d95c38358f8001882a28f3caf72ab44484c0d4a95cde done
+#18 naming to docker.io/library/glm53-roce:v11-b58f34ea done
+#18 DONE 0.1s
+exit 0

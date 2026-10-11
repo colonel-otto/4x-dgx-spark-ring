@@ -1,0 +1,13 @@
+switchless NCCL artifact identity PASS (not a transport test)
+switchless NCCL artifact identity PASS (not a transport test)
+switchless NCCL artifact identity PASS (not a transport test)
+switchless NCCL artifact identity PASS (not a transport test)
+runtime destination preflight PASS
+runtime destination preflight PASS
+runtime destination preflight PASS
+runtime destination preflight PASS
+2601c5aa51030d71d3ff30f9ee076149fe890d8044f7f28225de158447dd056c
+72f0211025e746472095cfa5caf651612784bd77db89f9adc17163a64e971a87
+157bdbf337cf5f1cc81bfdd1c9c3cf1bbfc1efaaed347360f96aa6ce503c2629
+1262cf13e09342b2bef62b7504307ae212fa3e91c6a309ee3b1f52725630d4ee
+launched glm53-switchless-r0..3; ./start.sh status until /health is 200 (cold-cache boots can take longer)

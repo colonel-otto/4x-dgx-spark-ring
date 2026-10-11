@@ -1,0 +1,12 @@
+2026-10-11T19:14:45-04:00 watchdog start for pid 2067164, expires 2026-10-11T22:14:45-04:00
+2026-10-11T19:14:46-04:00 pipeline=2067164 step_age=0s last='2026-10-11T19:14:45-04:00 preflight: mesh markers + hw tc rules on all nodes'
+2026-10-11T19:15:46-04:00 pipeline=2067164 step_age=7s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:16:51-04:00 pipeline=2067164 step_age=67s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:17:53-04:00 pipeline=2067164 step_age=132s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:18:54-04:00 pipeline=2067164 step_age=194s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:19:56-04:00 pipeline=2067164 step_age=255s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:20:58-04:00 pipeline=2067164 step_age=317s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:22:00-04:00 pipeline=2067164 step_age=379s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:23:02-04:00 pipeline=2067164 step_age=441s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:24:02-04:00 pipeline=2067164 step_age=503s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'
+2026-10-11T19:25:04-04:00 pipeline=2067164 step_age=563s last='2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)'

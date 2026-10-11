@@ -1,0 +1,13 @@
+2026-10-11T15:16:47-04:00 watchdog start, expires 2026-10-11T17:16:47-04:00
+2026-10-11T15:16:49-04:00 run-all=1855154 step_age=567s spark1_free=38039MB head_ctn=[dsv41-head ] last='2026-10-11T15:07:20-04:00 waiting for spark1 Qwen offload'
+2026-10-11T15:17:51-04:00 run-all=1855154 step_age=629s spark1_free=38039MB head_ctn=[dsv41-head ] last='2026-10-11T15:07:20-04:00 waiting for spark1 Qwen offload'
+2026-10-11T15:18:53-04:00 run-all=1855154 step_age=691s spark1_free=38039MB head_ctn=[dsv41-head ] last='2026-10-11T15:07:20-04:00 waiting for spark1 Qwen offload'
+2026-10-11T15:19:55-04:00 run-all=1855154 step_age=753s spark1_free=38039MB head_ctn=[dsv41-head ] last='2026-10-11T15:07:20-04:00 waiting for spark1 Qwen offload'
+2026-10-11T15:20:57-04:00 run-all=1855154 step_age=34s spark1_free=134541MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:21:59-04:00 run-all=1855154 step_age=96s spark1_free=126527MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:23:01-04:00 run-all=1855154 step_age=158s spark1_free=120543MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:24:03-04:00 run-all=1855154 step_age=220s spark1_free=114671MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:25:05-04:00 run-all=1855154 step_age=282s spark1_free=114783MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:26:07-04:00 run-all=1855154 step_age=344s spark1_free=109875MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:27:09-04:00 run-all=1855154 step_age=406s spark1_free=105575MB head_ctn=[dsv41-head ] last='2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G'
+2026-10-11T15:28:11-04:00 run-all=1855154 step_age=9s spark1_free=108785MB head_ctn=[] last='2026-10-11T15:28:00-04:00 launcher failed (v001): /home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/run-all.sh: line 76: /home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/glm-tp4.sh: Permission denied '

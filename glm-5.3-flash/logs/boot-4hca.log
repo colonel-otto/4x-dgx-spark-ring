@@ -1,0 +1,10 @@
+=== glm-tp4 up: nccl=4hca hca=rocep1s0f0,roceP2p1s0f0,rocep1s0f1,roceP2p1s0f1 port=8100 ===
+  preflight OK: local
+  preflight OK: spark1
+  preflight OK: spark2
+  preflight OK: spark4
+  launched rank 3 on gx10-3c91 mgmt=192.168.1.76
+  launched rank 2 on gx10-6b41 mgmt=192.168.1.66
+  launched rank 1 on gx10-e146 mgmt=192.168.1.6
+  launched rank 0 on spark-5fa1 mgmt=192.168.1.70
+boot started; watch: docker logs -f glm53_tp4 (sparkmain). Gate before use: /v1/models AND a chat completion.

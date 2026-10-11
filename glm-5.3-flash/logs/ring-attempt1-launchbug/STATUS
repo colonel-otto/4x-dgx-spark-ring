@@ -1,0 +1,4 @@
+2026-10-11T18:59:40-04:00 preflight: mesh markers + hw tc rules on all nodes
+2026-10-11T18:59:42-04:00 stop LVKP (containers preserved for rollback)
+2026-10-11T18:59:43-04:00 [watchdog] restore LVKP (reason: pipeline exited without a final line)
+2026-10-11T19:00:26-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)

@@ -1,0 +1,20 @@
+2026-10-11T15:29:54-04:00 waiting for spark1 Qwen offload
+2026-10-11T15:29:55-04:00 offload done, spark1 free:  107G
+2026-10-11T15:29:55-04:00 image local: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 image spark1: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 image spark2: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 image spark4: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 stopping DSv4.1
+2026-10-11T15:30:18-04:00 GLM boot nccl=4hca
+2026-10-11T15:45:33-04:00 boot-4hca: READY after 790 s (chat answered 42)
+2026-10-11T15:45:34-04:00 gate (upstream gate.sh)
+2026-10-11T15:46:12-04:00 gate exit 0: 4 PASS / 0 FAIL
+2026-10-11T15:46:12-04:00 bench pass 1
+2026-10-11T15:53:41-04:00 pass 1 rows: 1 90.6 74.2;4 54.1 161.3;8 53.3 173.3;16 43.0 178.1;
+2026-10-11T15:53:41-04:00 bench pass 2
+2026-10-11T16:00:53-04:00 pass 2 rows: 1 104.8 83.1;4 56.0 152.1;8 52.6 175.8;16 40.6 175.6;
+2026-10-11T16:00:53-04:00 real-text prefill
+2026-10-11T16:04:03-04:00 qeval
+2026-10-11T16:07:09-04:00 qeval:    prose     5/5    reason   16/16 wrote qeval-glm53-4hca.json 
+2026-10-11T16:07:09-04:00 ALL MEASUREMENTS DONE (variant 4hca)
+2026-10-11T16:07:10-04:00 GLM-5.3 SERVING on :8100 (nccl=4hca), left up as the serving engine

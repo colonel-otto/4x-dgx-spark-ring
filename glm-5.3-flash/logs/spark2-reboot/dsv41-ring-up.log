@@ -1,0 +1,11 @@
+== 1. NFS exports
+== 2. spark2 <-> sparkmain routes via spark1
+  jumbo ping spark2 -> sparkmain OK
+== 3. spark2 DSv4-0731 NFS mount
+48
+== 4. RoCEnante mesh
+  sparkmain: mesh-up OK
+  spark1: mesh-up OK
+  spark2: mesh-up OK
+  spark4: mesh-up OK
+dsv41-ring-up: done. Boot with: cd ~/dsv41/miaai && ./start-tp4.sh serve

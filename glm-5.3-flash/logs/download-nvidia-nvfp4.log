@@ -1,0 +1,7 @@
+start 2026-10-11T16:40:20-04:00
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+path=/home/sparkmain/models/nvidia/GLM-5.3-Flash-NVFP4
+hf exit 0 2026-10-11T17:08:34-04:00
+config sha256: e23c5d98f53e861d49a51bd3c68591621c5482ce829e42c31724152322fba03d (want e23c5d98f53e861d49a51bd3c68591621c5482ce829e42c31724152322fba03d)
+files: 42 shards: 33 size: 191G
+DONE

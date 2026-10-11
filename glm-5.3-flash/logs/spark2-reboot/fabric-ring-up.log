@@ -1,0 +1,20 @@
+=== applying ring ===
+  spark-5fa1: f0=10.100.164.2,10.100.165.2  f1=10.100.162.2,10.100.163.2  mtu=9000
+  gx10-e146: f0=10.100.160.2,10.100.161.2  f1=10.100.164.1,10.100.165.1  mtu=9000
+  gx10-6b41: f0=10.100.166.1,10.100.167.1  f1=10.100.160.1,10.100.161.1  mtu=9000
+  gx10-3c91: f0=10.100.162.1,10.100.163.1  f1=10.100.166.2,10.100.167.2  mtu=9000
+=== GID index 3 must be RoCE v2 and non-zero on all 16 HCAs ===
+  spark-5fa1: gid idx3 checked
+  gx10-e146: gid idx3 checked
+  gx10-6b41: gid idx3 checked
+  gx10-3c91: gid idx3 checked
+=== jumbo path, all 8 links (necessary, NOT sufficient -- only a real collective proves the ring) ===
+  E1 r1 sparkmain->spark1        3 packets transmitted, 3 received, 0% packet loss
+  E1 r2 sparkmain->spark1        3 packets transmitted, 3 received, 0% packet loss
+  E2 r1 spark1->spark2           3 packets transmitted, 3 received, 0% packet loss
+  E2 r2 spark1->spark2           3 packets transmitted, 3 received, 0% packet loss
+  E3 r1 spark2->spark4           3 packets transmitted, 3 received, 0% packet loss
+  E3 r2 spark2->spark4           3 packets transmitted, 3 received, 0% packet loss
+  E4 r1 spark4->sparkmain        3 packets transmitted, 3 received, 0% packet loss
+  E4 r2 spark4->sparkmain        3 packets transmitted, 3 received, 0% packet loss
+=== done. Bandwidth re-check: ~109 Gb/s per link, ~196 Gb/s per edge with both rails. ===

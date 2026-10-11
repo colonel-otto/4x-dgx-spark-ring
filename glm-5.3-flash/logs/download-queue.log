@@ -1,0 +1,5 @@
+== RedHatAI/GLM-5.3-Flash-NVFP4 @ 18d55bfd5a2194887738da73753975c9d3842f46 -> /home/sparkmain/models/RedHatAI/GLM-5.3-Flash-NVFP4  start 2026-10-11T17:08:40-04:00
+   exit 0  2026-10-11T17:36:18-04:00  files=20 size=185G
+== Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold @ 76c0b5173166d2795dd48860f45d8224817f894c -> /home/sparkmain/models/Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold  start 2026-10-11T17:36:18-04:00
+   exit 0  2026-10-11T18:00:56-04:00  files=95 size=164G
+QUEUE DONE 2026-10-11T18:00:56-04:00; free:  603G

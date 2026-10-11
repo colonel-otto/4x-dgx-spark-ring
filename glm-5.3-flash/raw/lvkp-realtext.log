@@ -1,0 +1,6 @@
+prompt_tokens=22857 ttft=7.08s prefill=3226 tok/s
+prompt_tokens=20860 ttft=7.16s prefill=2914 tok/s
+prompt_tokens=23969 ttft=7.40s prefill=3237 tok/s
+prompt_tokens=87354 ttft=27.59s prefill=3166 tok/s
+prompt_tokens=77146 ttft=23.72s prefill=3253 tok/s
+prompt_tokens=94373 ttft=29.74s prefill=3173 tok/s

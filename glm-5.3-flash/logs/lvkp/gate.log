@@ -1,0 +1,12 @@
+== 0. endpoint reachable ==
+  PASS: glm-5.3-flash present in /v1/models
+== 1. long-context needle (~30K prefill) ==
+  PASS: needle retrieved (prompt_tokens=28780) -> 'INDIGO-OTTER-4417'
+== 2. tool-call (glm47 parser) ==
+  PASS: tool_call emitted -> get_weather({"city": "Bristol"})
+== 3. warm decode (throwaway turn, then measure) ==
+  warm decode: 195 tokens in 2.3s = 85.8 t/s
+  PASS: decode in the expected band (current reference ~70-76 t/s code).
+
+== gate summary: 4 passed, 0 failed/warned ==
+GATE GREEN — safe to declare serving.

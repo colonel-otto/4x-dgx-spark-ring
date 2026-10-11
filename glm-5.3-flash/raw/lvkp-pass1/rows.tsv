@@ -1,0 +1,5 @@
+c	output_tokens	median_decode_tok_s	agg_tok_s	ttft_ms
+1	128	111.6	91.3	289
+4	128	59.7	167.2	544
+8	128	42.4	239.4	898
+16	128	26.3	291.7	1754

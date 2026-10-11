@@ -7,3 +7,10 @@ dsv41-flash/__pycache__/
 # throwaway container-to-container MPI key: generated locally, never committed
 dsv4-0731/nccl-gate/img/ntkey
 dsv4-0731/nccl-gate/img/ntkey.pub
+
+# third-party recipe clones: pinned in glm-5.3-flash/recipe/README.md, not vendored
+research/glm-5.3-flash-4x-dgx-spark-switchless/
+research/GLM-5.3-Flash-4x-DGX-Spark-TP4/
+# glm-5.3-flash: copied upstream checkpoint metadata and caches
+glm-5.3-flash/stage/rev-9e0d74e3/
+glm-5.3-flash/__pycache__/

@@ -1,0 +1,24 @@
+2026-10-11T17:08:38-04:00 verify nvidia base @09b04e5e
+2026-10-11T17:08:38-04:00 GLM down (current build stays on disk for rollback)
+2026-10-11T17:08:57-04:00 build glm53-roce:v11-b58f34ea on all 4 nodes, create /opt/glm53
+2026-10-11T17:09:38-04:00 image local: sha256:cdb79e1f0fdf
+2026-10-11T17:09:38-04:00 image spark1: sha256:a4ba375d0f1e
+2026-10-11T17:09:39-04:00 image spark2: sha256:15d85c40b53d
+2026-10-11T17:09:39-04:00 image spark4: sha256:f1b79404504b
+2026-10-11T17:09:39-04:00 stage inputs under /opt/glm53/models (hardlinks, same FS)
+2026-10-11T17:09:39-04:00 convert: lossless8 target + FP8 drafter (CPU, 16 GB cap)
+2026-10-11T17:10:38-04:00 config hashes: target f14dc13ce3bef88a5539c9e61b3e4f3dbef6958ebc3acda4b7f05f418642c3b0 (want f14dc13c…) drafter 15bc842939ff7ca3ccc5aad36d25fff854da05a60086a4f55672d804fc6dbe7b (want 15bc8429…)
+2026-10-11T17:10:38-04:00 copy target + drafter to workers over the fabric
+2026-10-11T17:28:16-04:00 copied to spark1: 197G
+2026-10-11T17:28:16-04:00 copied to spark2: 197G
+2026-10-11T17:28:17-04:00 copied to spark4: 197G
+2026-10-11T17:28:17-04:00 launch LVKP (ENV_FILE=.env.switchless)
+2026-10-11T17:38:06-04:00 LVKP READY after 510 s
+2026-10-11T17:38:07-04:00 gate
+2026-10-11T17:38:27-04:00 gate: 4 PASS / 0 FAIL
+2026-10-11T17:38:27-04:00 bench pass 1
+2026-10-11T17:43:35-04:00 pass 1 rows: 1 111.6 91.3;4 59.7 167.2;8 42.4 239.4;16 26.3 291.7;
+2026-10-11T17:43:35-04:00 bench pass 2
+2026-10-11T17:48:20-04:00 pass 2 rows: 1 117.6 93.1;4 65.7 160.0;8 51.9 259.9;16 25.7 300.5;
+2026-10-11T17:51:57-04:00 qeval: 72/75 passed (96.0%), 0 hit the token cap, wall 1.9 min, median 77.99 tok/s
+2026-10-11T17:51:57-04:00 LVKP SERVING on :8100, measurements done

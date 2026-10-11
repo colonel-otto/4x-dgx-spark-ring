@@ -1,0 +1,10 @@
+start 2026-10-11T15:04:55-04:00
+tar pipe exit 0 0 2026-10-11T15:20:08-04:00
+spark1: 57 50 105896010311
+spark4: 57 50 105896010311
+rm: cannot remove '/home/spark1/.cache/huggingface/hub/models--local-inference-lab--Qwen3.8-Flash-Next-NVFP4/.no_exist/7c4f1bc1a2d6847e0cbc01ac6b823f00251de8dd/special_tokens_map.json': Permission denied
+rm: cannot remove '/home/spark1/.cache/huggingface/hub/models--local-inference-lab--Qwen3.8-Flash-Next-NVFP4/.no_exist/7c4f1bc1a2d6847e0cbc01ac6b823f00251de8dd/added_tokens.json': Permission denied
+rm: cannot remove '/home/spark1/.cache/huggingface/hub/models--local-inference-lab--Qwen3.8-Flash-Next-NVFP4/.no_exist/7c4f1bc1a2d6847e0cbc01ac6b823f00251de8dd/audio_tokenizer_config.json': Permission denied
+rm: cannot remove '/home/spark1/.cache/huggingface/hub/models--local-inference-lab--Qwen3.8-Flash-Next-NVFP4/.no_exist/7c4f1bc1a2d6847e0cbc01ac6b823f00251de8dd/processor_config.json': Permission denied
+rm: cannot remove '/home/spark1/.cache/huggingface/hub/models--local-inference-lab--Qwen3.8-Flash-Next-NVFP4/.no_exist/7c4f1bc1a2d6847e0cbc01ac6b823f00251de8dd/chat_template.json': Permission denied
+DONE 2026-10-11T15:20:09-04:00

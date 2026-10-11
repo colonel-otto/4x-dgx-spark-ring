@@ -1,0 +1,13 @@
+2026-10-11T15:07:20-04:00 waiting for spark1 Qwen offload
+2026-10-11T15:20:21-04:00 offload done, spark1 free:  136G
+2026-10-11T15:27:18-04:00 image local: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:27:19-04:00 image spark1: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:27:19-04:00 image spark2: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:27:19-04:00 image spark4: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:27:19-04:00 stopping DSv4.1
+2026-10-11T15:27:45-04:00 GLM boot nccl=4hca
+2026-10-11T15:27:45-04:00 launcher failed (4hca): /home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/run-all.sh: line 76: /home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/glm-tp4.sh: Permission denied 
+2026-10-11T15:28:00-04:00 GLM boot nccl=v001
+2026-10-11T15:28:00-04:00 launcher failed (v001): /home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/run-all.sh: line 76: /home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/glm-tp4.sh: Permission denied 
+2026-10-11T15:28:15-04:00 GLM did not come up on either NCCL variant
+2026-10-11T15:28:15-04:00 restore: GLM down, DSv4.1 serve

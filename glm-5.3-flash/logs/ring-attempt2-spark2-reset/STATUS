@@ -1,0 +1,5 @@
+2026-10-11T19:14:45-04:00 preflight: mesh markers + hw tc rules on all nodes
+2026-10-11T19:14:46-04:00 stop LVKP (containers preserved for rollback)
+2026-10-11T19:15:39-04:00 sync merged source to /opt/glm53/src-ring and build glm53-roce:v12-ring-sparkmain on all nodes
+2026-10-11T19:15:39-04:00 sync to spark1 failed
+2026-10-11T19:15:39-04:00 ROLLBACK: stop ring containers, restart preserved LVKP (r3 -> r0)

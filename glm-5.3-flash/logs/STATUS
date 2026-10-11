@@ -1,0 +1,29 @@
+2026-10-11T15:29:54-04:00 waiting for spark1 Qwen offload
+2026-10-11T15:29:55-04:00 offload done, spark1 free:  107G
+2026-10-11T15:29:55-04:00 image local: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 image spark1: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 image spark2: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 image spark4: sha256:35c6f70ffcba62fd67d7b9d4b4e8300ad177201792ce9cdb1ea18fd449bc23b6
+2026-10-11T15:29:56-04:00 stopping DSv4.1
+2026-10-11T15:30:18-04:00 GLM boot nccl=4hca
+2026-10-11T15:45:33-04:00 boot-4hca: READY after 790 s (chat answered 42)
+(Worker_TP0 pid=383) INFO 10-11 19:31:19 [selector.py:217] Using HND KV cache layout for FLASHINFER_MLA_SPARSE_SM90 backend.
+(Worker_TP0 pid=383) INFO 10-11 19:41:54 [gpu_worker.py:492] Initial free memory 111.48 GiB, reserved 12.0 GiB memory for KV Cache as specified by kv_cache_memory_bytes config and skipped memory profiling. This does not respect the gpu_memory_utilization config. Only use kv_cache_memory_bytes config when you want manual control of KV cache memory size. If OOM'ed, check the difference of initial free memory between the current run and the previous run where kv_cache_memory_bytes is suggested and update it correspondingly.
+(EngineCore pid=312) INFO 10-11 19:41:54 [kv_cache_utils.py:2274] GPU KV cache size: 1,576,246 tokens, Maximum concurrency for 262,144 tokens per request: 6.01x
+2026-10-11T15:45:34-04:00 gate (upstream gate.sh)
+2026-10-11T15:46:12-04:00 gate exit 0: 4 PASS / 0 FAIL
+2026-10-11T15:46:12-04:00 bench pass 1
+2026-10-11T15:53:41-04:00 pass 1 rows: 1 90.6 74.2;4 54.1 161.3;8 53.3 173.3;16 43.0 178.1;
+2026-10-11T15:53:41-04:00 bench pass 2
+2026-10-11T16:00:53-04:00 pass 2 rows: 1 104.8 83.1;4 56.0 152.1;8 52.6 175.8;16 40.6 175.6;
+2026-10-11T16:00:53-04:00 real-text prefill
+prompt_tokens=22857 ttft=13.47s prefill=1697 tok/s
+prompt_tokens=20860 ttft=13.15s prefill=1587 tok/s
+prompt_tokens=23969 ttft=13.53s prefill=1772 tok/s
+prompt_tokens=87354 ttft=51.13s prefill=1709 tok/s
+prompt_tokens=77146 ttft=44.36s prefill=1739 tok/s
+prompt_tokens=94373 ttft=53.74s prefill=1756 tok/s
+2026-10-11T16:04:03-04:00 qeval
+2026-10-11T16:07:09-04:00 qeval:    prose     5/5    reason   16/16 wrote qeval-glm53-4hca.json 
+2026-10-11T16:07:09-04:00 ALL MEASUREMENTS DONE (variant 4hca)
+2026-10-11T16:07:10-04:00 GLM-5.3 SERVING on :8100 (nccl=4hca), left up as the serving engine

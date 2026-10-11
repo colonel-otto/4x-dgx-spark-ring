@@ -1,0 +1,3 @@
+2026-10-11T19:30:23-04:00 watchdog start for pid 2073594, expires 2026-10-11T22:30:23-04:00
+tail: cannot open '/home/sparkmain/bench/4x-dgx-spark-ring/glm-5.3-flash/logs/ring/STATUS' for reading: No such file or directory
+2026-10-11T19:30:25-04:00 pipeline=2073594 step_age=0s last=''
